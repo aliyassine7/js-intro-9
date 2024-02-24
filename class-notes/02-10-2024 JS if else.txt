@@ -1,0 +1,133 @@
+Is there a class {
+    // join the class
+    if(wake up and feel good){
+    // in person
+    }
+    else {
+    // online
+    }
+else{
+    // have Fun
+    if (weather is nice) {
+        // outdoor activity 
+        if(game){
+            // go to game
+        }
+        else if (nice movie){
+            // watch the movie
+        }
+        else {
+            // walk
+        }
+    }
+}
+}
+
+conditional - condition
+
+if (condition) {
+    console.log('Plan A');
+}
+
+if the condition is true or truthy -> Plan A
+if the condition is false or falsy -> does not execute
+
+if-else statements
+-One of the blocks will be executed
+- else does not have any condition
+- if can be used without else but else CANNOT be used without if
+
+
+if(condition) {
+    // block 1
+}
+else {
+    // block 2
+}
+
+
+if...else if...else statements  -> Ladder statements 
+
+1       -> Monday
+2       -> Tuesday
+7       -> Sunday
+
+if (num === 1) {
+    // Monday
+}
+else if (num === 2) {
+    // Tuesday
+}
+else if (num === 3) {
+    // Wednesday
+}
+else if (num === 4) {
+    // Thursday
+}
+else if (num === 5) {
+    // Friday
+}
+else if (num === 6) {
+    // Saturday
+}
+else {
+    // Sunday
+}
+
+
+Positive
+Negative
+Neutral
+
+if() {
+    if() {
+
+    }
+    else {
+
+    }
+}
+else {
+    if() {
+
+    }
+    else if() {
+
+    }
+    else {
+        
+    }
+}
+
+
+
+            Weekend
+Outdoor concert     Hackathon
+
+            Weekday 
+Movie         Golf         GYM
+
+
+let weekend = false;
+let weather = 65;
+let moviePerfect = false;
+
+if(weekend) {
+    if(weather > 70) {
+        // Outdoor concert
+    }
+    else {
+        // Hackathon
+    }
+}
+else {
+    if(moviePerfect) {
+        // Movie
+    }
+    else if(weather > 70) {
+        // Golf
+    }
+    else {
+        // GYM
+    }
+}

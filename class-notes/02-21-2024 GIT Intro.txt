@@ -1,0 +1,15 @@
+
+
+GIT: Global Information Tracker
+    -it monitors the changes in a project
+    -
+
+GitHub: is a hosting website
+GitLab
+Bitbucket
+
+
+Pushing a local project to REMOTE (GitHub/GitLab/Bitbucket repo)
+1. Create a local project
+2. Create a remote repo
+3. Initialize 

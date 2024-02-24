@@ -1,0 +1,54 @@
+
+
+
+RECAP: 
+
+== vs ===
+!= vs !==
+
+2 == '2'        -> true
+2 ==='2'        -> false
+
+2 != '2'        -> faslse
+2 !== '2'       -> true - the data types are not equal but the values are
+
+
+Falsy values: false, null, 0 , undefined. '', "", NaN
+
+
+JS Numbers: floating numbers, absolute numbers
+number: 64 bits
+bigint: 64 bits+ 
+
+ceil(10.99) -> 11
+ceil(10.01) -> 11
+
+floor(10.99) -> 10
+floor(10.01) -> 10
+
+round(10.51) -> 11
+round(10.49) -> 10
+
+trunc(10.99) -> 10
+trunc(10.01) -> 10
+
+Generate a random number between 5 amd 8 both inclusive
+5, 6, 7, 8
+
+Math.random() * 4
+
+7 28
+22
+
+7 9 
+9 - 7 + 1 = 3
+
+generate a random number between a and b
+we assume a is less than b
+
+Math.random( * (b - a + 1)) + a
+
+
+generate random number between 123 and 267
+
+Math.floor(Math.random() * (267 - 123 + 1)) + 123
