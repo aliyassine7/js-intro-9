@@ -1,0 +1,33 @@
+
+
+
+Arrays: built in JS Object used to store multiple data
+
+Array Methods:
+Add/Remove elements:
+    push() -> adds element to the end of the array
+    unshift() -> adds element to the beginning of the array
+    pop() -> removes the last element 
+    shift() -> removes the first element 
+    splice() -> adds or removes or both at the same time to a specified position 
+    splice(startingPosition, numberElementsToBeRemoved, addEl1, addEl2...)
+
+Searching element:
+    includes() -> returns true/false
+    indexOf() -> returns index of first occurrence
+    lastIndexOf() -> returns the index of the last occurrence 
+
+Get partial array: 
+    slice(startIndex) -> partial array starting from the given index to the end
+    slice(startIndex, endIndex) -> partail array starting from given startIndex to endIndex (exclusive)
+
+Merging arrays:
+    concat() -> put arrays together
+
+NOTE: spread operator (...) can also be used
+
+Reversing the order of elements in an array:
+    reverse() 
+
+Checking if a variable is array:
+    Array.isArray() ->
