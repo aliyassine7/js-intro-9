@@ -9,8 +9,6 @@ for(initialization; termination_condition; update)
 for(let i = 1; i <= 10; i++) { // num = 1
     console.log(i);
 }
-
-
 console.log('End of the program');
 
 // 0, 2, 4, 6, 8, 10
