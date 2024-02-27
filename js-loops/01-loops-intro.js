@@ -21,3 +21,11 @@ for(let i = 0; i <= 10; i+=2) {
 for(let i = 50; i >= 0; i-=10) {
     console.log(i)
 }
+
+// const arr = [];
+
+// for(let i = 50; i >= 0; i-=10) {
+//     arr.push(i);
+// }
+
+// console.log(arr.join(', '));
