@@ -1,3 +1,4 @@
+const {generateRandomNumber} = require('../utils/MathHelper.js');
 // Output the numbers from 100 to 0 (both inclusive) –> 100 99 98 97 96 …
 /* 
 start: 100
@@ -72,5 +73,24 @@ for(let i = 10; i <= 15; i++) {
 console.log(total);
 
 // Output each character from TechGlobal School -> T e c h G l o b a l   S c h o o l
+let school = 'TechGlobal School';
+for(let i = 0; i <= school.length - 1; i++) {
+    console.log(school[i]);
+}
 
-let arr = [];
+// Count the total occurrences of letter o in TechGlobal School  -> 3
+
+let count = 0;
+for(let i = 0; i <= school.length - 1; i++) {
+    if(school[i] === 'o') count ++;
+}
+console.log(count); // 3
+
+console.log(school.split('').filter((element) => element.toLowerCase === 'o').length); // This also works. Array filter() method with a callback function.
+
+// Output all the odd numbers from 1 to Random Number (both inclusive) -> 1 3 5 7 9 …
+let randomNumber = generateRandomNumber(10, 20);
+
+for(let i = 1; i <= randomNumber; i+=2) {
+    console.log(i);
+}
