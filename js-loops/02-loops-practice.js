@@ -95,10 +95,13 @@ for(let i = 1; i <= randomNumber; i+=2) {
     console.log(i);
 }
 
-/* 
+/*
 Print all the numbers between 2 random numbers in the range of 1 to 10 (both inclusive) in ascending order
 
 r1 r2
+7, 5    -> 5 6 7
+4, 8    -> 4 5 6 7 8
+5, 5    -> 5
 */
 
 let r1 = generateRandomNumber(1, 10);
@@ -107,6 +110,6 @@ let r2 = generateRandomNumber(1, 10);
 let max = Math.max(r1, r2);
 let min = Math.min(r1, r2);
 
-for(let i = 0; i <= max; i++) {
-    
+for(let i = min; i <= max; i++) {
+    console.log(i);
 }
