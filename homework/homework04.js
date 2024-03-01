@@ -74,7 +74,31 @@ For example:
 0! (by convention) is defined as 1.
 */
 let r1 = Math.floor(Math.random() * 10 + 1);
+console.log(r1);
+
+let factorial = 1;
 
 for(let i = r1; i >= 1; i--) {
-    r1 * (r1 -1);
+    factorial *= i;
 }
+console.log(factorial);
+
+
+//Task 7
+/*
+Requirement:
+Write a program generates a random number between 
+1 and 100 (both inclusive).
+Keep generating a new number till you get a number 
+that is divisible by 5.
+
+The program should also count how many attempts it 
+takes to generate such a number.
+
+Eventually, print the random number divisible by 5 with 
+the number of attempts as below.
+
+Expected Output:
+The random number is {randomNumber} and it took 
+{attempts} attempt/s to generate it.
+*/
