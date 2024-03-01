@@ -102,4 +102,141 @@ Expected Output:
 The random number is {randomNumber} and it took 
 {attempts} attempt/s to generate it.
 */
-hello
+let r2 = Math.floor(Math.random() * 100 + 1);
+
+attempt = 0;
+
+for(let i = r2; i >= 1; i++) {
+    if(r2 % 5 === 0) console.log(i)
+    attempt++;
+}
+
+console.log(`The random number is ${r2} and it took ${attempt} attempt/s to generate it.`);
+
+
+// Task 8
+/*
+Requirement:
+-Create a String array that stores cartoon dogs below
+Scooby Doo, Snoopy, Blue, Pluto, Dino, Sparky 
+
+THEN:
+-Output the entire array
+-Then, check if the array has Pluto element
+if it has Pluto, then output true
+if it does not have Pluto, output false
+
+Expected Result:
+[ 'Scooby Doo', 'Snoopy', 'Blue', 'Pluto', 'Dino', 'Sparky' ]
+true
+*/
+const countries = ['Germany', 'Argentina', 'Ukraine', 'Romania'];
+
+console.log(countries.sort());
+
+
+// Task 9
+/*
+Requirement:
+-Create a String array that stores cartoon dogs below
+Scooby Doo, Snoopy, Blue, Pluto, Dino, Sparky 
+
+THEN:
+-Output the entire array
+-Then, check if the array has Pluto element
+if it has Pluto, then output true
+if it does not have Pluto, output false
+
+Expected Result:
+[ 'Scooby Doo', 'Snoopy', 'Blue', 'Pluto', 'Dino', 'Sparky' ]
+true
+*/
+const dogs = ['Scooby Doo', 'Snoopy', 'Blue', 'Pluto', 'Dino', 'Sparky'];
+
+console.log(dogs);
+console.log(dogs.includes('Pluto'));
+
+
+// Task 10
+/*
+Requirement:
+-Create an array that stores cartoon cats below.
+Garfield, Tom, Sylvester, Azrael
+
+THEN:
+-Output the entire array sorted lexicographically
+-Then, check if the array has both Garfield and Felix
+if it has both, then output true
+if it does not have both, output false
+
+Expected Result:
+[ 'Azrael', 'Garfield', 'Sylvester', 'Tom' ]
+false
+*/
+const cats = ['Garfield', 'Tom', 'Sylvester', 'Azrael'];
+
+console.log(cats.sort());
+
+if(cats.includes('Garfield') && cats.includes('Felix')) console.log('true');
+else console.log('false');
+
+
+// Task 11
+/*
+Requirement:
+-Create an array that stores numbers below
+10.5, 20.75, 70, 80, 15.75
+THEN:
+-Output the entire array
+-Ouput each element
+Expected Result:
+[ 10.5, 20.75, 70, 80, 15.75 ]
+10.5
+20.75
+70
+80
+15.75
+*/
+
+const numbers = [10.5, 20.75, 70, 80, 15.75];
+
+console.log(numbers);
+const numbersCopy = [...numbers];
+numbersCopy.reverse();
+
+for(let i = numbersCopy.length - 1; i >= 0; i--) {
+    console.log(numbersCopy[i]);
+}
+
+//Task 12
+/*
+Requirement:
+-Create an array that stores objects below.
+Pen, notebook, Book, paper, bag, pencil, Ruler
+
+THEN:
+-Output the entire array.
+-Output how many elements starts with 'B' or 'P', 
+ignoring cases.
+-Output how many elements has 'book' or 'pen' partial 
+strings, ignoring cases.
+
+Expected Result:
+['Pen', 'notebook', 'Book', 'paper', 'bag', 'pencil', 'Ruler' ]
+Elements starting with 'B' or 'P' = 5
+Elements having 'book' or 'pen' = 4
+*/
+
+const objects = ['Pen', 'notebook', 'Book', 'paper', 'bag', 'pencil', 'Ruler'];
+
+console.log(objects);
+
+let countBorP = 0;
+let countBookorPen = 0;
+
+for(let i = objects.length - 1; i >= 0; i--) {
+    if(objects.toString().toLowerCase().includes('book') || objects.toString().toLowerCase().includes('pen')) countBookorPen++;
+}
+
+console.log(`Elements starting with 'B' or 'P' = `);
+console.log(`Elements having 'book' or 'pen' = ${countBookorPen}`);
