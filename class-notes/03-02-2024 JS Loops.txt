@@ -1,0 +1,36 @@
+
+
+
+INFINITE LOOP: A loop created by mistake and never stops
+for(let i = 0; i <= 1; i--) {
+    // block
+}
+
+for( ; ; ) {
+    // block
+}
+
+// For loop 
+for(let i = 1; i <= 10; i++) {
+    console.log(i);
+}
+
+
+// While loop 
+let i = 1;
+
+while(i <= 10) {
+    console.log(i);
+    i++;
+}
+
+
+
+
+if you know exactly how many times your loop is going to iterate -> FOR LOOP
+if you don't know how many times your loop is going to iterate -> WHILE or DO-WHILE LOOP
+
+
+                                        Do you know the total number of iterations
+                                    YES                                              NO
+                                  for loop                                         while or do-while loop

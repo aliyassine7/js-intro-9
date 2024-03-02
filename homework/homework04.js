@@ -201,11 +201,9 @@ Expected Result:
 const numbers = [10.5, 20.75, 70, 80, 15.75];
 
 console.log(numbers);
-const numbersCopy = [...numbers];
-numbersCopy.reverse();
 
-for(let i = numbersCopy.length - 1; i >= 0; i--) {
-    console.log(numbersCopy[i]);
+for(let i = 0; i <= numbers.length - 1; i++) {
+    console.log(numbers[i]);
 }
 
 //Task 12
@@ -234,9 +232,29 @@ console.log(objects);
 let countBorP = 0;
 let countBookorPen = 0;
 
-for(let i = objects.length - 1; i >= 0; i--) {
-    if(objects.toString().toLowerCase().includes('book') || objects.toString().toLowerCase().includes('pen')) countBookorPen++;
+for(let i = 0; i <= objects.length - 1; i++) {
+    if(objects[i].toLowerCase().includes('book') || objects[i].toLowerCase().includes('pen')) countBookorPen++;
+    if(objects[i][0].toLowerCase().startsWith('b') || objects[i][0].toLowerCase().startsWith('p')) countBorP++;
 }
 
-console.log(`Elements starting with 'B' or 'P' = `);
+console.log(`Elements starting with 'B' or 'P' = ${countBorP}`);
 console.log(`Elements having 'book' or 'pen' = ${countBookorPen}`);
+
+
+// ChatGPT
+/*
+const objects = ['Pen', 'notebook', 'Book', 'paper', 'bag', 'pencil', 'Ruler'];
+
+console.log(objects);
+
+let countBorP = 0;
+let countBookorPen = 0;
+
+for(let i = 0; i <= objects.length - 1; i++) {
+    if(objects[i][0].toLowerCase() === 'b' || objects[i][0].toLowerCase() === 'p') countBorP++;
+    if(objects[i].toLowerCase() === 'book' || objects[i].toLowerCase() === 'pen') countBookorPen++;
+}
+
+console.log(`Elements starting with 'B' or 'P' = ${countBorP}`);
+console.log(`Elements having 'book' or 'pen' = ${countBookorPen}`);
+*/
