@@ -102,14 +102,14 @@ Expected Output:
 The random number is {randomNumber} and it took 
 {attempts} attempt/s to generate it.
 */
-let r2 = Math.floor(Math.random() * 100 + 1);
+let r2;
+let attempt = 0;
 
-attempt = 0;
-
-for(let i = r2; i >= 1; i++) {
-    if(r2 % 5 === 0) console.log(i)
+do {
+    r2 = Math.floor(Math.random() * 100 + 1);
     attempt++;
-}
+} while (r2 % 5 !== 0);
+
 
 console.log(`The random number is ${r2} and it took ${attempt} attempt/s to generate it.`);
 
@@ -240,21 +240,88 @@ for(let i = 0; i <= objects.length - 1; i++) {
 console.log(`Elements starting with 'B' or 'P' = ${countBorP}`);
 console.log(`Elements having 'book' or 'pen' = ${countBookorPen}`);
 
+countBookorPen = 0;
+countBorP = 0;
 
-// ChatGPT
-/*
-const objects = ['Pen', 'notebook', 'Book', 'paper', 'bag', 'pencil', 'Ruler'];
-
-console.log(objects);
-
-let countBorP = 0;
-let countBookorPen = 0;
-
-for(let i = 0; i <= objects.length - 1; i++) {
-    if(objects[i][0].toLowerCase() === 'b' || objects[i][0].toLowerCase() === 'p') countBorP++;
-    if(objects[i].toLowerCase() === 'book' || objects[i].toLowerCase() === 'pen') countBookorPen++;
+for(const obj of objects) {
+    if(obj[0].toLowerCase() === 'b' || obj[0].toLowerCase() === 'p') countBorP++;
+    if(obj.toLowerCase().includes('book') || obj.toLowerCase().includes('pen')) countBookorPen++;
 }
-
 console.log(`Elements starting with 'B' or 'P' = ${countBorP}`);
 console.log(`Elements having 'book' or 'pen' = ${countBookorPen}`);
+
+
+// Task 13
+/*
+Requirement:
+-Create an array that stores numbers below.
+3, 5, 7, 10, 0, 20, 17, 10, 23, 56, 78
+
+THEN:
+-Output the entire array
+-Output how many elements are more than 10
+-Output how many elements are less than 10
+-Output how many elements are 10
+
+Expected Result:
+[ 3, 5, 7, 10, 0, 20, 17, 10, 23, 56, 78 ]
+Elements that are more than 10 = 5
+Elements that are less than 10 = 4
+Elements that are 10 = 2
 */
+
+const nums = [3, 5, 7, 10, 0, 20, 17, 10, 23, 56, 78];
+
+console.log(nums);
+
+let moreThan10 = 0;
+let lessThan10 = 0;
+let isTen = 0;
+
+for(const num of nums) {
+    if(num > 10) moreThan10++;
+    else if(num < 10) lessThan10++;
+    else isTen++; 
+}
+
+console.log(`Elements that are more than 10 = ${moreThan10}`);
+console.log(`Elements that are less than 10 = ${lessThan10}`);
+console.log(`Elements that are 10 = ${isTen}`);
+
+
+//Task 14
+/*
+Requirement:
+-Create 2 arrays that stores numbers below.
+First array->  [ 5, 8, 13, 1, 2 ]
+Second array ->  [ 9, 3, 67, 1, 0 ]
+
+THEN:
+-Output both arrays
+–Then, create a new array that will take the greatest 
+value of same index from first 2 arrays and output the 
+third array as well.
+
+Expected Result:
+1st array is =  [ 5, 8, 13, 1, 2 ]
+2nd array is =  [ 9, 3, 67, 1, 0 ]
+3rd array is =  [ 9, 8, 67, 1, 2 ]
+*/
+
+const arr1 = [5, 8, 13, 1, 2];
+const arr2 = [9, 3, 67, 1, 0];
+const arr3 = [];
+
+console.log(arr1);
+console.log(arr2);
+
+for(let i = 0; i < arr1.length; i++) {
+    arr3.push(Math.max(arr1[i], arr2[i]));
+}
+
+console.log(`1st array is = ${arr1}`);
+console.log(`2nd array is = ${arr2}`);
+console.log(`3rd array is = ${arr3}`);
+
+
+// Task 15
