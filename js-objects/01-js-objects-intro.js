@@ -66,4 +66,3 @@ delete mug['material'];
 
 console.log(mug.capacity);
 console.log(mug.material);
-

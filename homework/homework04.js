@@ -416,7 +416,10 @@ reverseStringWords("    ")  -> ""
 
 function reverseStringWords(str){
    str = str.trim();
-   str.split('');
+   str.split(' ');
+   for(let i = 0; i < str.length; i++) {
+        str.split('');
+   }
 }
 
 console.log(reverseStringWords("Hello World"));
