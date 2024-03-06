@@ -459,13 +459,21 @@ getEvens(3, 3) -> [ ]
 */
 
 function getEvens(num1, num2) {
-    
+    let arr = [];
+
+    let max = Math.max(num1, num2);
+    let min = Math.min(num1, num2);
+
+    for(let i = min; i <= max; i++) {
+        if(i % 2 === 0) arr.push(i);
+    }
+    return arr;
 }
 
-console.log(getEvens(2, 7))
-console.log(getEvens(17, 5))
-console.log(getEvens(4, 4))
-console.log(getEvens(3, 3))
+console.log(getEvens(2, 7));
+console.log(getEvens(17, 5));
+console.log(getEvens(4, 4));
+console.log(getEvens(3, 3));
 
 //Task 19
 /*
@@ -488,20 +496,61 @@ getMultipleOf5(2, 4) -> [ ]
 */
 
 function getMultipleOf5(num1, num2) {
+    let arr = [];
 
+    let max = Math.max(num1, num2);
+    let min = Math.min(num1, num2);
+
+    for(let i = min; i <= max; i++) {
+        if(i % 5 === 0) arr.push(i);
+    }
+
+    if(max === num1) arr.reverse();
+
+    return arr;
 }
 
-console.log(getMultipleOf5(3, 17))
-console.log(getMultipleOf5(23, 5))
-console.log(getMultipleOf5(5, 5))
-console.log(getMultipleOf5(2, 4))
+console.log(getMultipleOf5(3, 17));
+console.log(getMultipleOf5(23, 5));
+console.log(getMultipleOf5(5, 5));
+console.log(getMultipleOf5(2, 4));
 
 
 //Task 20 
-const fizzBuzz = (num1, num2) => {
+/*
+Write a function named as fizzBuzz() which takes 2 number arguments and 
+returns a string composed with below requirements when invoked.
+You need to find all the numbers within the range of given 2 numbers (both inclusive) 
+and store them in a string from smallest to greatest number with a ' | ' separator for each number.
+You will need to convert numbers divisible by 3 to 'Fizz'
+You will need to convert numbers divisible by 5 to 'Buzz'
+You will need to convert numbers divisible by both 3 and 5 to 'FizzBuzz’
+The rest will stay the same.
+NOTE: Make your code dynamic that works for any numbers.
+Assume you will not be given negative numbers.
 
+Examples:
+fizzBuzz(13, 18)	-> "13 | 14 | FizzBuzz | 16 | 17 | Fizz" 
+fizzBuzz(12, 5)	-> "Buzz | Fizz | 7 | 8 | Fizz | Buzz | 11 | Fizz"
+fizzBuzz(5, 5)	-> "Buzz"
+fizzBuzz(9, 6)	-> "Fizz | 7 | 8 | Fizz"
+*/
+
+function fizzBuzz(num1, num2) {
+    let numbers = [];
+
+    let max = Math.max(num1, num2);
+    let min = Math.min(num1, num2);
+
+    for(let i = min; i <= max; i++) {
+        if(i % 3 === 0 && i % 5 === 0) numbers.push('FizzBuzz');
+        else if(i % 3 === 0) numbers.push('Fizz');
+        else if(i % 5 === 0) numbers.push('Buzz');
+        else numbers.push(i);
+    }
+    return numbers.join(' | ');
 }
-fizzBuzz(13, 18);
-fizzBuzz(12, 5);
-fizzBuzz(5, 5);
-fizzBuzz(9, 6);
+console.log(fizzBuzz(13, 18));
+console.log(fizzBuzz(12, 5));
+console.log(fizzBuzz(5, 5));
+console.log(fizzBuzz(9, 6));
