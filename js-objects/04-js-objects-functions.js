@@ -4,7 +4,10 @@ const person = {
     date_of_birth: 1790,
     isAlive: false,
     fullName: function () {
-        console.log('Hello')
+        console.log(this.first_name, this.last_name)
     }
 };
 
+// this is a keyword that refers to the current object
+
+person.fullName();
