@@ -4,8 +4,8 @@ Requirement:
 Write a program that outputs all the numbers that are 
 divisible by 7 starting from 1 to 100 (both inclusive).
 */
-for(let i = 1; i <= 100; i++) {
-    if(i % 7 === 0) console.log(i);
+for (let i = 1; i <= 100; i++) {
+    if (i % 7 === 0) console.log(i);
 }
 
 
@@ -16,8 +16,8 @@ Write a program that outputs all the numbers that are
 divisible by both 2 and 3 starting from 1 to 50 (both 
 inclusive).
 */
-for(let i = 1; i <= 50; i++) {
-    if(i % 2 === 0 && i % 3 === 0) console.log(i);
+for (let i = 1; i <= 50; i++) {
+    if (i % 2 === 0 && i % 3 === 0) console.log(i);
 }
 
 
@@ -27,8 +27,8 @@ Requirement:
 Write a program that outputs all the numbers that are 
 divisible by 5 starting from 100 to 50 (both inclusive).
 */
-for(let i = 100; i >= 50; i--) {
-    if(i % 5 === 0) console.log(i)
+for (let i = 100; i >= 50; i--) {
+    if (i % 5 === 0) console.log(i)
 }
 
 
@@ -38,7 +38,7 @@ Requirement:
 Write a program that outputs the squares of all numbers 
 starting from 0 to 7 (both inclusive).
 */
-for(let i = 0; i <= 7; i++) {
+for (let i = 0; i <= 7; i++) {
     console.log(i ** 2);
 }
 
@@ -51,7 +51,7 @@ from 1 to 10 (both inclusive).
 Calculation => 1+2+3+4+5+6+7+8+9+10
 */
 let sum = 0;
-for(let i = 1; i <= 10; i++) {
+for (let i = 1; i <= 10; i++) {
     sum += i;
 }
 console.log(sum);
@@ -78,7 +78,7 @@ console.log(r1);
 
 let factorial = 1;
 
-for(let i = r1; i >= 1; i--) {
+for (let i = r1; i >= 1; i--) {
     factorial *= i;
 }
 console.log(factorial);
@@ -177,7 +177,7 @@ const cats = ['Garfield', 'Tom', 'Sylvester', 'Azrael'];
 
 console.log(cats.sort());
 
-if(cats.includes('Garfield') && cats.includes('Felix')) console.log('true');
+if (cats.includes('Garfield') && cats.includes('Felix')) console.log('true');
 else console.log('false');
 
 
@@ -202,7 +202,7 @@ const numbers = [10.5, 20.75, 70, 80, 15.75];
 
 console.log(numbers);
 
-for(let i = 0; i <= numbers.length - 1; i++) {
+for (let i = 0; i <= numbers.length - 1; i++) {
     console.log(numbers[i]);
 }
 
@@ -232,9 +232,9 @@ console.log(objects);
 let countBorP = 0;
 let countBookorPen = 0;
 
-for(let i = 0; i <= objects.length - 1; i++) {
-    if(objects[i].toLowerCase().includes('book') || objects[i].toLowerCase().includes('pen')) countBookorPen++;
-    if(objects[i][0].toLowerCase().startsWith('b') || objects[i][0].toLowerCase().startsWith('p')) countBorP++;
+for (let i = 0; i <= objects.length - 1; i++) {
+    if (objects[i].toLowerCase().includes('book') || objects[i].toLowerCase().includes('pen')) countBookorPen++;
+    if (objects[i][0].toLowerCase().startsWith('b') || objects[i][0].toLowerCase().startsWith('p')) countBorP++;
 }
 
 console.log(`Elements starting with 'B' or 'P' = ${countBorP}`);
@@ -243,9 +243,9 @@ console.log(`Elements having 'book' or 'pen' = ${countBookorPen}`);
 countBookorPen = 0;
 countBorP = 0;
 
-for(const obj of objects) {
-    if(obj[0].toLowerCase() === 'b' || obj[0].toLowerCase() === 'p') countBorP++;
-    if(obj.toLowerCase().includes('book') || obj.toLowerCase().includes('pen')) countBookorPen++;
+for (const obj of objects) {
+    if (obj[0].toLowerCase() === 'b' || obj[0].toLowerCase() === 'p') countBorP++;
+    if (obj.toLowerCase().includes('book') || obj.toLowerCase().includes('pen')) countBookorPen++;
 }
 console.log(`Elements starting with 'B' or 'P' = ${countBorP}`);
 console.log(`Elements having 'book' or 'pen' = ${countBookorPen}`);
@@ -278,10 +278,10 @@ let moreThan10 = 0;
 let lessThan10 = 0;
 let isTen = 0;
 
-for(const num of nums) {
-    if(num > 10) moreThan10++;
-    else if(num < 10) lessThan10++;
-    else isTen++; 
+for (const num of nums) {
+    if (num > 10) moreThan10++;
+    else if (num < 10) lessThan10++;
+    else isTen++;
 }
 
 console.log(`Elements that are more than 10 = ${moreThan10}`);
@@ -315,7 +315,7 @@ const arr3 = [];
 console.log(arr1);
 console.log(arr2);
 
-for(let i = 0; i < arr1.length; i++) {
+for (let i = 0; i < arr1.length; i++) {
     arr3.push(Math.max(arr1[i], arr2[i]));
 }
 
@@ -345,20 +345,20 @@ firstDuplicate([ 1, 2, 3]) -> -1
 firstDuplicate([ 'foo', 'abc', '123', 'bar' ])  -> -1
 */
 
-function firstDuplicate(arr){
-    for(let i = 0; i < arr.length; i++) {
-        if(arr.indexOf(arr[i]) !== arr.lastIndexOf(arr[i])) return arr[i];
+function firstDuplicate(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr.indexOf(arr[i]) !== arr.lastIndexOf(arr[i])) return arr[i];
     }
     return -1;
 }
 
-console.log(firstDuplicate([ 3, 7, 10, 0, 3, 10 ])); // 3
+console.log(firstDuplicate([3, 7, 10, 0, 3, 10])); // 3
 
-console.log(firstDuplicate([ 5, 7, 7, 0, 5, 10 ])); // 5
-console.log(firstDuplicate([ 5, '5', 3, 7, 4 ])); // -1
-console.log(firstDuplicate([ 123, 'abc', '123', 3, 'abc' ])); // 'abc'
-console.log(firstDuplicate([ 1, 2, 3])); // -1
-console.log(firstDuplicate([ 'foo', 'abc', '123', 'bar' ])); // -1
+console.log(firstDuplicate([5, 7, 7, 0, 5, 10])); // 5
+console.log(firstDuplicate([5, '5', 3, 7, 4])); // -1
+console.log(firstDuplicate([123, 'abc', '123', 3, 'abc'])); // 'abc'
+console.log(firstDuplicate([1, 2, 3])); // -1
+console.log(firstDuplicate(['foo', 'abc', '123', 'bar'])); // -1
 
 
 
@@ -381,18 +381,18 @@ getDuplicates(['A', 'foo', '12' , 12, 'bar', 'a', 'a', 'foo' ]) -> [ 'foo', 'a' 
 getDuplicates([ 'foo', '12' , 12, 'bar', 'a' ]) -> [ ]
 */
 
-function getDuplicates(arr){
+function getDuplicates(arr) {
     let duplicates = [];
-    for(let i = 0; i < arr.length; i++) {
-        if(arr.indexOf(arr[i]) !== arr.lastIndexOf(arr[i]) && !duplicates.includes(arr[i])) duplicates.push(arr[i]);
+    for (let i = 0; i < arr.length; i++) {
+        if (arr.indexOf(arr[i]) !== arr.lastIndexOf(arr[i]) && !duplicates.includes(arr[i])) duplicates.push(arr[i]);
     }
     return duplicates;
 }
 
-console.log(getDuplicates([ 0, -4, -7, 0, 5, 10, 45, -7, 0 ])); // [0, -7]
-console.log(getDuplicates([ 1, 2, 5, 0, 7 ])); // []
-console.log(getDuplicates(['A', 'foo', '12' , 12, 'bar', 'a', 'a', 'foo' ])); // ['foo', 'a']
-console.log(getDuplicates([ 'foo', '12' , 12, 'bar', 'a' ])); // []
+console.log(getDuplicates([0, -4, -7, 0, 5, 10, 45, -7, 0])); // [0, -7]
+console.log(getDuplicates([1, 2, 5, 0, 7])); // []
+console.log(getDuplicates(['A', 'foo', '12', 12, 'bar', 'a', 'a', 'foo'])); // ['foo', 'a']
+console.log(getDuplicates(['foo', '12', 12, 'bar', 'a'])); // []
 
 
 
@@ -414,19 +414,27 @@ reverseStringWords("")  -> ""
 reverseStringWords("    ")  -> ""
 */
 
-function reverseStringWords(str){
-   str = str.trim();
-   str.split(' ');
-   for(let i = 0; i < str.length; i++) {
-        str.split('');
-   }
+function reverseStringWords(str) {
+    // Trim the string to remove leading and trailing spaces
+    str = str.trim();
+
+    // Split the string into an array of words
+    let words = str.split(' ');
+
+    // Loop through each word and reverse it
+    for (let i = 0; i < words.length; i++) {
+        // Split each word into an array of characters, reverse it, and join it back
+        words[i] = words[i].split('').reverse().join('');
+    }
+    // Join the reversed words back into a string
+    return words.join(' ');
 }
 
-console.log(reverseStringWords("Hello World"));
-console.log(reverseStringWords("I like JavaScript"));
-console.log(reverseStringWords("Hello"));
-console.log(reverseStringWords(""));
-console.log(reverseStringWords("    "));
+console.log(reverseStringWords("Hello World")); // "olleH dlroW"
+console.log(reverseStringWords("I like JavaScript")); // "I ekil tpircSavaJ"
+console.log(reverseStringWords("Hello")); // "olleH"
+console.log(reverseStringWords("")); // ''
+console.log(reverseStringWords("    "));// ''
 
 
 //Task 18
@@ -450,7 +458,7 @@ getEvens(4, 4) -> [ 4 ]
 getEvens(3, 3) -> [ ]
 */
 
-function getEvens(num1, num2){
+function getEvens(num1, num2) {
     
 }
 
@@ -479,8 +487,8 @@ getMultipleOf5(5, 5) -> [ 5 ]
 getMultipleOf5(2, 4) -> [ ]
 */
 
-function getMultipleOf5(num1, num2){
-    
+function getMultipleOf5(num1, num2) {
+
 }
 
 console.log(getMultipleOf5(3, 17))
@@ -491,7 +499,7 @@ console.log(getMultipleOf5(2, 4))
 
 //Task 20 
 const fizzBuzz = (num1, num2) => {
-    
+
 }
 fizzBuzz(13, 18);
 fizzBuzz(12, 5);
