@@ -10,6 +10,7 @@ console.log(firstPos([0, 3, -9, 5, 8]));
 console.log(firstPos([-2, 0, -7, 10, -5]));
 console.log(firstPos([1, 2, 3, -2]));
 
+
 // Task 2
 function lastNeg(arr) {
     for (let i = arr.length - 1; i >= 0; i--) {
@@ -21,6 +22,7 @@ function lastNeg(arr) {
 console.log(lastNeg([0, 3, -9, 5, 8]));
 console.log(lastNeg([-2, 0, -7, 10, -5]));
 console.log(lastNeg([1, 2, 3, -2]));
+
 
 // Task 3
 function firstLongest(arr) {
@@ -52,6 +54,7 @@ function lastShortest(arr) {
 console.log(lastShortest(["red", "blue", "yellow", "white"]));
 console.log(lastShortest(["Apple", "Banana", "Mango"]));
 console.log(lastShortest(["white", "yellow", "brown"]));
+
 
 // Task 5
 function max(array) {
