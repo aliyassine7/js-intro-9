@@ -6,7 +6,7 @@ function firstPos(arr) {
         }
     }
 }
-console.log(firstPos([0, 3, -9,  5, 8]));
+console.log(firstPos([0, 3, -9, 5, 8]));
 console.log(firstPos([-2, 0, -7, 10, -5]));
 console.log(firstPos([1, 2, 3, -2]));
 
@@ -24,7 +24,7 @@ console.log(lastNeg([1, 2, 3, -2]));
 
 // Task 3
 function firstLongest(arr) {
-    let longestElement = arr[0]; 
+    let longestElement = arr[0];
 
     for (let i = 0; i < arr.length; i++) {
         if (arr[i].length > longestElement.length) {
@@ -43,26 +43,26 @@ console.log(firstLongest(["purple", "yellow", "orange"])) //    	-> "purple"
 // Task 4
 function lastShortest(arr) {
     let shortestElement = arr[0];
-    for(let i = 0; i < arr.length; i++) {
-        if(arr[i].length <= shortestElement.length) shortestElement = arr[i];
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].length <= shortestElement.length) shortestElement = arr[i];
     }
     return shortestElement;
 }
 
-console.log(lastShortest(["red", "blue", "yellow", "white"])); 
-console.log(lastShortest(["Apple", "Banana", "Mango"])); 
+console.log(lastShortest(["red", "blue", "yellow", "white"]));
+console.log(lastShortest(["Apple", "Banana", "Mango"]));
 console.log(lastShortest(["white", "yellow", "brown"]));
 
 // Task 5
 function max(array) {
     let greatest = 0;
-    for (i = 0 ; i < array.length ; i++) {
-        if ( array[i] > greatest) greatest = array[i];
-    }return greatest;
+    for (i = 0; i < array.length; i++) {
+        if (array[i] > greatest) greatest = array[i];
+    } return greatest;
 
 }
-console.log(max([0, 3, -9,  5, 8]));
-console.log(max([-2, 0, -7, 10,  -5]));
+console.log(max([0, 3, -9, 5, 8]));
+console.log(max([-2, 0, -7, 10, -5]));
 console.log(max([1, 2, 3, -2]));
 
 
