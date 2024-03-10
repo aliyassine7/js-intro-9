@@ -31,4 +31,13 @@ const lastWords = sentences.map(senetnce => senetnce.split(' ').at(-1));
 // const lastWords = sentences.map(senetnce => senetnce.split(' ').slice(-1)).flat();
 // const lastWords = sentences.map(senetnce => senetnce.split(' ').pop());
 
-console.log(lastWords);
+console.log(lastWords); // [ 'morning', 'arrays', 'Sunday' ]
+
+
+const salaries = [1000.2342, 5234.34533, 721.9786, 3452.50];
+
+// Create a new array storing the given salaries with 2 decimals -> [1000.23, 5234.35, 721.98, 3452.50]
+
+const newSalaries = salaries.map(salary => Number(salary.toFixed(2)));
+
+console.log(newSalaries); // [ 1000.23, 5234.35, 721.98, 3452.5 ]
