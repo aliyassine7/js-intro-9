@@ -419,41 +419,36 @@ const isPasswordValid = (password) => {
     let hasSpecialChar;
     let noSpace = !(password.includes(' '));
     
-
-    for (const password of newPassword) {
-        if (password.charCodeAt(0) > 64 && password.charCodeAt(0) < 91) {
-            hasUppercase = true;
-            break;
-        } else {
-            hasUppercase = false;
-        }
-    }
-    for (const password of newPassword) {
-        if (password.charCodeAt(0) > 96 && password.charCodeAt(0) < 123) {
-            hasLowerCase = true;
-            break;
-        } else {
-            hasLowerCase = false;
-        }
-    }
+    
     for (const password of newPassword){
         if (password.charCodeAt(0) > 47 && password.charCodeAt(0) < 58) {
             hasDigit = true;
             break;
-        } else {
-            hasDigit = false;
-        }
+        } else hasDigit = false;
     }
+    
+    for (const password of newPassword) {
+        if (password.charCodeAt(0) > 64 && password.charCodeAt(0) < 91) {
+            hasUppercase = true;
+            break;
+        } else hasUppercase = false;
+    }
+
+    for (const password of newPassword) {
+        if (password.charCodeAt(0) > 96 && password.charCodeAt(0) < 123) {
+            hasLowerCase = true;
+            break;
+        } else hasLowerCase = false;
+    }
+
     for (const password of newPassword){
         if (password.charCodeAt(0) > 32 && password.charCodeAt(0) < 48) {
             hasSpecialChar = true;
             break;
-        } else {
-            hasSpecialChar = false;
-        }
+        } else hasSpecialChar = false;
     }
-    return smallLength && largeLength && noSpace && hasUppercase && hasLowerCase && hasDigit && hasSpecialChar;
 
+    return smallLength && largeLength && noSpace && hasUppercase && hasLowerCase && hasDigit && hasSpecialChar;
 }
 
 console.log(isPasswordValid("")); // false
