@@ -370,12 +370,12 @@ const isEmailValid = (email) => {
     let afterDot = 2 <= email.slice(email.indexOf('.')).length;
     let betweenAtAndDot = 2 <= email.slice(email.indexOf('@'), email.indexOf('.')).length;
     
-    let counter = 0
+    let count = 0
     for (const letters of email) {
-        if(letters === "@") counter += 1;
+        if(letters === "@") count += 1;
     }
 
-   return beforeAt && afterDot && betweenAtAndDot && counter === 1 && !(email.includes(' ')) 
+   return beforeAt && afterDot && betweenAtAndDot && count === 1 && !(email.includes(' ')) ;
 
 }
 
@@ -387,3 +387,5 @@ console.log(isEmailValid("a@outlook.com")); // false
 console.log(isEmailValid("johndoe@a.com")); // false
 console.log(isEmailValid("johndoe@@gmail.com")); // false
 console.log(isEmailValid("johndoe@gmail.com")); // true
+
+
