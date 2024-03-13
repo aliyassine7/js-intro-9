@@ -285,25 +285,25 @@ NOTE: Be careful about the array sizes as they could be different.
 // }
 
 const add = (arr1, arr2) => {
-//     const maxLength = Math.max(arr1.length, arr2.length);
-//     const sum = [];
+    //     const maxLength = Math.max(arr1.length, arr2.length);
+    //     const sum = [];
 
-//     for (let i = 0; i < maxLength; i++) {
-//         const num1 = arr1[i] || 0; // If arr1[i] is undefined, use 0
-//         const num2 = arr2[i] || 0; // If arr2[i] is undefined, use 0
-//         sum.push(num1 + num2);
-//     }
+    //     for (let i = 0; i < maxLength; i++) {
+    //         const num1 = arr1[i] || 0; // If arr1[i] is undefined, use 0
+    //         const num2 = arr2[i] || 0; // If arr2[i] is undefined, use 0
+    //         sum.push(num1 + num2);
+    //     }
 
-//     return sum;
+    //     return sum;
 
-const shortArray = arr1.length < arr2.length ? arr1 : arr2;
-const longArray = arr1.length > arr2.length ? arr1 : arr2;
-const arr3 = [];
+    const shortArray = arr1.length < arr2.length ? arr1 : arr2;
+    const longArray = arr1.length > arr2.length ? arr1 : arr2;
+    const arr3 = [];
 
-for (let i = 0; i < shortArray.length; i++) {
-    arr3.push(arr1[i] + arr2[i]);
-}
-return arr3.concat(longArray.slice(shortArray.length))
+    for (let i = 0; i < shortArray.length; i++) {
+        arr3.push(arr1[i] + arr2[i]);
+    }
+    return arr3.concat(longArray.slice(shortArray.length))
 }
 
 console.log(add([3, 0, 0, 7, 5, 10], [6, 3, 2])); // [9, 3, 2, 7, 5, 10]
@@ -340,7 +340,7 @@ NOTE: If there are more than one numbers are close equally, return the smaller n
 
 const findClosestTo10 = (arr) => {
     let closestNum = 0;
-    let smallestDiff = Infinity; 
+    let smallestDiff = Infinity;
 
     for (const num of arr) {
         if (num !== 10) { // Ignore 10 itself
@@ -378,13 +378,13 @@ const isEmailValid = (email) => {
     let beforeAt = 3 <= email.slice(0, email.indexOf('@')).length;
     let afterDot = 3 <= email.slice(email.indexOf('.')).length;
     let betweenAtAndDot = 3 <= email.slice(email.indexOf('@'), email.indexOf('.')).length;
-    
+
     let count = 0
     for (const letters of email) {
-        if(letters === "@") count += 1;
+        if (letters === "@") count += 1;
     }
 
-   return beforeAt && afterDot && betweenAtAndDot && count === 1 && !(email.includes(' ')) ;
+    return beforeAt && afterDot && betweenAtAndDot && count === 1 && !(email.includes(' '));
 
 }
 
@@ -413,43 +413,43 @@ const isPasswordValid = (password) => {
     let newPassword = password.split('');
     let smallLength = password.length >= 8;
     let largeLength = password.length <= 16;
-    let hasDigit;
-    let hasUppercase;
-    let hasLowerCase;
-    let hasSpecialChar;
+    let hasDigit = false;
+    let hasUppercase = false;
+    let hasLowerCase = false;
+    let hasSpecialChar = false;
     let noSpace = !(password.includes(' '));
-    
-    
-    for (const password of newPassword){
-        let charAscii = password.charCodeAt(0);
-        if (charAscii >= 48 && charAscii <= 57) {
+
+
+    for (const char of newPassword) {
+        const charCode = char.charCodeAt(0);
+        if (charCode >= 48 && charCode <= 57) {
             hasDigit = true;
             break;
-        } else hasDigit = false;
+        }
     }
 
-    for (const password of newPassword) {
-        let charAscii = password.charCodeAt(0);
-        if (charAscii> 64 && charAscii < 91) {
+    for (const char of newPassword) {
+        const charCode = char.charCodeAt(0);
+        if (charCode >= 65 && charCode <= 90) {
             hasUppercase = true;
             break;
-        } else hasUppercase = false;
+        }
+    }
+
+    for (const char of newPassword) {
+        const charCode = char.charCodeAt(0);
+        if (charCode >= 97 && charCode <= 122) {
+            hasLowerCase = true;
+            break;
+        }
     }
 
     for (const password of newPassword) {
-        let charAscii = password.charCodeAt(0);
-        if (charAscii > 96 && charAscii < 123) {
-            hasLowerCase = true;
-            break;
-        } else hasLowerCase = false;
-    }
-
-    for (const password of newPassword){
         let charAscii = password.charCodeAt(0);
         if (charAscii > 32 && charAscii < 48) {
             hasSpecialChar = true;
             break;
-        } else hasSpecialChar = false;
+        }
     }
 
     return smallLength && largeLength && noSpace && hasUppercase && hasLowerCase && hasDigit && hasSpecialChar;
