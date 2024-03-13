@@ -285,16 +285,25 @@ NOTE: Be careful about the array sizes as they could be different.
 // }
 
 const add = (arr1, arr2) => {
-    const maxLength = Math.max(arr1.length, arr2.length);
-    const sum = [];
+//     const maxLength = Math.max(arr1.length, arr2.length);
+//     const sum = [];
 
-    for (let i = 0; i < maxLength; i++) {
-        const num1 = arr1[i] || 0; // If arr1[i] is undefined, use 0
-        const num2 = arr2[i] || 0; // If arr2[i] is undefined, use 0
-        sum.push(num1 + num2);
-    }
+//     for (let i = 0; i < maxLength; i++) {
+//         const num1 = arr1[i] || 0; // If arr1[i] is undefined, use 0
+//         const num2 = arr2[i] || 0; // If arr2[i] is undefined, use 0
+//         sum.push(num1 + num2);
+//     }
 
-    return sum;
+//     return sum;
+
+const shortArray = arr1.length < arr2.length ? arr1 : arr2;
+const longArray = arr1.length > arr2.length ? arr1 : arr2;
+const arr3 = [];
+
+for (let i = 0; i < shortArray.length; i++) {
+    arr3.push(arr1[i] + arr2[i]);
+}
+return arr3.concat(longArray.slice(shortArray.length))
 }
 
 console.log(add([3, 0, 0, 7, 5, 10], [6, 3, 2])); // [9, 3, 2, 7, 5, 10]
@@ -366,9 +375,9 @@ There should be at least 2 characters after the . character.
 */
 
 const isEmailValid = (email) => {
-    let beforeAt = 2 <= email.slice(0, email.indexOf('@')).length;
-    let afterDot = 2 <= email.slice(email.indexOf('.')).length;
-    let betweenAtAndDot = 2 <= email.slice(email.indexOf('@'), email.indexOf('.')).length;
+    let beforeAt = 3 <= email.slice(0, email.indexOf('@')).length;
+    let afterDot = 3 <= email.slice(email.indexOf('.')).length;
+    let betweenAtAndDot = 3 <= email.slice(email.indexOf('@'), email.indexOf('.')).length;
     
     let count = 0
     for (const letters of email) {
@@ -387,5 +396,38 @@ console.log(isEmailValid("a@outlook.com")); // false
 console.log(isEmailValid("johndoe@a.com")); // false
 console.log(isEmailValid("johndoe@@gmail.com")); // false
 console.log(isEmailValid("johndoe@gmail.com")); // true
+
+
+// Task 15
+/*
+Write a function named as isPasswordValid() which takes a string email as an argument 
+and returns true if the password is valid or returns false otherwise when invoked.
+
+NOTE: A VALID PASSWORD:
+should have length of 8 to 16 (both inclusive).
+should have at least 1 digit, 1 uppercase, 1 lowercase and 1 special char.
+should NOT have any space.
+*/
+
+const isPasswordValid = (password) => {
+    let smallLength = password.length >= 8;
+    let largeLength = password.length <= 16;
+    let hasDigit;
+    let hasUppercase;
+    let hasLowerCase;
+    let hasSpecialChar;
+
+    for()
+}
+
+console.log(isPasswordValid("")); // false
+console.log(isPasswordValid("abcd")); // false
+console.log(isPasswordValid("abcd1234")); // false
+console.log(isPasswordValid("Abcd1234")); // false
+console.log(isPasswordValid("Chicago12345US!#$%")); // false
+console.log(isPasswordValid("Abcd1234$")); // true
+console.log(isPasswordValid("Chicago123$")); // true
+console.log(isPasswordValid("Test1234#")); // true
+
 
 
