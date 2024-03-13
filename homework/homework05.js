@@ -213,18 +213,18 @@ and returns the count of the words that has 3 characters or less when invoked.
 const count3OrLess = (str) => {
     let count = 0;
 
-    str.split(' ').forEach(word => {
-        if (word.length <= 3) count++;
-    });
+    // Another solution
+    // str.split(' ').forEach(word => {
+    //     if (word.length <= 3 && word.length > 0) count++;
+    // });
 
-    return count
+    // return count
 
-    // Another solution 
-    // let words = str.split(' ');
-    // for (const word of words) {
-    //     if(word.length <= 3) count++;
-    // }
-    // return count;
+    let words = str.trim().split(' ');
+    for (const word of words) {
+        if(word.length <= 3 && word.length > 0) count++;
+    }
+    return count;
 }
 
 
