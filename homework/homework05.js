@@ -410,14 +410,50 @@ should NOT have any space.
 */
 
 const isPasswordValid = (password) => {
+    let newPassword = password.split('');
     let smallLength = password.length >= 8;
     let largeLength = password.length <= 16;
     let hasDigit;
     let hasUppercase;
     let hasLowerCase;
     let hasSpecialChar;
+    let noSpace = !(password.includes(' '));
+    
 
-    for()
+    for (const password of newPassword) {
+        if (password.charCodeAt(0) > 64 && password.charCodeAt(0) < 91) {
+            hasUppercase = true;
+            break;
+        } else {
+            hasUppercase = false;
+        }
+    }
+    for (const password of newPassword) {
+        if (password.charCodeAt(0) > 96 && password.charCodeAt(0) < 123) {
+            hasLowerCase = true;
+            break;
+        } else {
+            hasLowerCase = false;
+        }
+    }
+    for (const password of newPassword){
+        if (password.charCodeAt(0) > 47 && password.charCodeAt(0) < 58) {
+            hasDigit = true;
+            break;
+        } else {
+            hasDigit = false;
+        }
+    }
+    for (const password of newPassword){
+        if (password.charCodeAt(0) > 32 && password.charCodeAt(0) < 48) {
+            hasSpecialChar = true;
+            break;
+        } else {
+            hasSpecialChar = false;
+        }
+    }
+    return smallLength && largeLength && noSpace && hasUppercase && hasLowerCase && hasDigit && hasSpecialChar;
+
 }
 
 console.log(isPasswordValid("")); // false
@@ -428,6 +464,3 @@ console.log(isPasswordValid("Chicago12345US!#$%")); // false
 console.log(isPasswordValid("Abcd1234$")); // true
 console.log(isPasswordValid("Chicago123$")); // true
 console.log(isPasswordValid("Test1234#")); // true
-
-
-
