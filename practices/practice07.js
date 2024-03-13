@@ -179,6 +179,7 @@ let classicBook = bookstore.reduce((classicTitles, book) => {
 }, []);
 console.log(classicBook);
 
+
 // Task 4
 /*
 You are given a JS Array below:
