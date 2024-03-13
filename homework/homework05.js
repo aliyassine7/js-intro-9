@@ -366,18 +366,17 @@ There should be at least 2 characters after the . character.
 */
 
 const isEmailValid = (email) => {
-    let beforeAt = email.slice(0, email.indexOf('@')).length;
-    let afterDot = email.slice(email.indexOf('.')).length;
-    let betweenAtAndDot = email.slice(email.indexOf('@'), email.indexOf('.')).length;
+    let beforeAt = 2 <= email.slice(0, email.indexOf('@')).length;
+    let afterDot = 2 <= email.slice(email.indexOf('.')).length;
+    let betweenAtAndDot = 2 <= email.slice(email.indexOf('@'), email.indexOf('.')).length;
     
-    // Check for any space in the email
-    if (email.includes(' ')) {
-        return false;
+    let counter = 0
+    for (const letters of email) {
+        if(letters === "@") counter += 1;
     }
-    // Check for more than one "@" character
-    if (email.split('@').length > 1) {
-        return false;
-    }
+
+   return beforeAt && afterDot && betweenAtAndDot && counter === 1 && !(email.includes(' ')) 
+
 }
 
 console.log(isEmailValid("")); // false
