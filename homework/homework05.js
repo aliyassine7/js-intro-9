@@ -421,28 +421,32 @@ const isPasswordValid = (password) => {
     
     
     for (const password of newPassword){
-        if (password.charCodeAt(0) > 47 && password.charCodeAt(0) < 58) {
+        let charAscii = password.charCodeAt(0);
+        if (charAscii >= 48 && charAscii <= 57) {
             hasDigit = true;
             break;
         } else hasDigit = false;
     }
-    
+
     for (const password of newPassword) {
-        if (password.charCodeAt(0) > 64 && password.charCodeAt(0) < 91) {
+        let charAscii = password.charCodeAt(0);
+        if (charAscii> 64 && charAscii < 91) {
             hasUppercase = true;
             break;
         } else hasUppercase = false;
     }
 
     for (const password of newPassword) {
-        if (password.charCodeAt(0) > 96 && password.charCodeAt(0) < 123) {
+        let charAscii = password.charCodeAt(0);
+        if (charAscii > 96 && charAscii < 123) {
             hasLowerCase = true;
             break;
         } else hasLowerCase = false;
     }
 
     for (const password of newPassword){
-        if (password.charCodeAt(0) > 32 && password.charCodeAt(0) < 48) {
+        let charAscii = password.charCodeAt(0);
+        if (charAscii > 32 && charAscii < 48) {
             hasSpecialChar = true;
             break;
         } else hasSpecialChar = false;
