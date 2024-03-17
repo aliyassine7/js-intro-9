@@ -4,14 +4,14 @@ Write a function named countPos() which takes an array of numbers as an argument
 and returns how many elements are positive​ when invoked. 
 */
 
-const countPos = (arr) => {
-    let count = 0;
+const countPos = (arr) => arr.filter(num => num > 0).length;
 
-    arr.forEach(num => {
-        if (num > 0) count++;
-    });
-    return count;
-}
+// let count = 0;
+
+// arr.forEach(num => {
+//     if (num > 0) count++;
+// });
+// return count;
 
 console.log(countPos([-45, 0, 0, 34, 5, 67])); // 3
 console.log(countPos([-23, -4, 0, 2, 5, 90, 123])); // 4
@@ -26,15 +26,18 @@ and returns how many A or a there are in the given string when invoked.
 NOTE: Ignore case sensitivity.
 */
 
-const countA = (str) => {
-    let count = 0;
-    str.trim();
-    const words = str.split(''); // Split the string into an array of words
-    words.forEach(word => {
-        if (word.toLowerCase().includes('a')) count++;
-    });
-    return count;
-}
+const countA = (str) => str.filter(i => i.toLowerCase() === 'a').length;
+
+// return [...str].filter(i => i.toLowerCase() === 'a').length;
+
+// let count = 0;
+// 
+// const words = str.split(''); // Split the string into an array of words
+// words.forEach(word => {
+//     if (word.toLowerCase().includes('a')) count++;
+// });
+// return count;
+
 
 console.log(countA("TechGlobal is a QA bootcamp")); // 4
 console.log(countA("QA stands for Quality Assurance")); // 5
@@ -210,7 +213,7 @@ Write a function named as count3OrLess() which takes a string word as an argumen
 and returns the count of the words that has 3 characters or less when invoked.
 */
 
-const count3OrLess = (str) => {
+const count3OrLess = str => {
     let count = 0;
 
     // Another solution
@@ -222,7 +225,7 @@ const count3OrLess = (str) => {
 
     let words = str.trim().split(' ');
     for (const word of words) {
-        if(word.length <= 3 && word.length > 0) count++;
+        if (word.length <= 3 && word.length > 0) count++;
     }
     return count;
 }
@@ -247,11 +250,36 @@ Examples: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31…
 NOTE: The smallest prime number is 2 and there is no negative prime numbers.
 */
 
-const isPrime = (num) => {
-    if (num < 2) return false;
+// const isPrime = (num) => {
+//     if (num < 2) return false;
 
-    for (let i = 2; i <= Math.sqrt(num); i++) {
+//     for (let i = 2; i <= Math.sqrt(num); i++) {
+//         if (num % i === 0) return false;
+//     }
+
+//     return true;
+// }
+
+// function isPrime(num) {
+//     for (let i = 2; i < 7; i++) {
+//         console.log(num,i);
+//         if (num < 2) return false;
+//         else if (num == i) return true;
+//         else if (num % i === 0) return false;
+//     }
+//     return true;
+// }
+
+const isPrime = num => {
+    if(num < 2) return false;
+    if(num === 2 || num === 3) return true;
+    if(num % 2 === 0 || num % 3 === 0) return false;
+
+    let i = 5;
+
+    while (i < num) {
         if (num % i === 0) return false;
+        i += 2;
     }
 
     return true;
@@ -259,7 +287,9 @@ const isPrime = (num) => {
 
 console.log(isPrime(5)); // true
 console.log(isPrime(2)); // true
+console.log(isPrime(3)); // true
 console.log(isPrime(29)); // true
+console.log(isPrime(4)); // false
 console.log(isPrime(-5)); // false
 console.log(isPrime(0)); // false
 console.log(isPrime(1)); // false
@@ -374,18 +404,36 @@ There should be at least 2 characters between @ and . Characters.
 There should be at least 2 characters after the . character.
 */
 
+// const isEmailValid = (email) => {
+//     let beforeAt = 3 <= email.slice(0, email.indexOf('@')).length;
+//     let afterDot = 3 <= email.slice(email.indexOf('.')).length;
+//     let betweenAtAndDot = 3 <= email.slice(email.indexOf('@'), email.indexOf('.')).length;
+
+//     let count = 0
+//     for (const letters of email) {
+//         if (letters === "@") count += 1;
+//     }
+
+//     return beforeAt && afterDot && betweenAtAndDot && count === 1 && !(email.includes(' '));
+
+// }
+
 const isEmailValid = (email) => {
-    let beforeAt = 3 <= email.slice(0, email.indexOf('@')).length;
-    let afterDot = 3 <= email.slice(email.indexOf('.')).length;
-    let betweenAtAndDot = 3 <= email.slice(email.indexOf('@'), email.indexOf('.')).length;
+    // checks for spaces 
+    if (email.includes(' ')) return false;
 
-    let count = 0
-    for (const letters of email) {
-        if (letters === "@") count += 1;
-    }
+    // checks if it has 1 @
+    if (email.split('').filter(x => x === '@').length !== 1) return false;
 
-    return beforeAt && afterDot && betweenAtAndDot && count === 1 && !(email.includes(' '));
+    // if(email.split('').filter(x => x === '.').length === 0) return false;
 
+    let beginning = email.split('@')[0];
+    let middle = email.split('@')[1].split('.');
+    let end = email.split('@')[1].split('.')[1];
+
+    if (!beginning || !middle || !end) return false;
+
+    return beginning.length >= 2 && middle.length >= 2 && end.length >= 2;
 }
 
 console.log(isEmailValid("")); // false
@@ -410,49 +458,27 @@ should NOT have any space.
 */
 
 const isPasswordValid = (password) => {
-    let newPassword = password.split('');
-    let smallLength = password.length >= 8;
-    let largeLength = password.length <= 16;
-    let hasDigit = false;
-    let hasUppercase = false;
-    let hasLowerCase = false;
-    let hasSpecialChar = false;
-    let noSpace = !(password.includes(' '));
+    // checks the range
+    if (password.length < 8 || password.length > 16) return false;
 
+    // checks if it has at least 1 digit
+    if (password.split('').filter(x => x >= '0' && x <= '9').length === 0) return false;
 
-    for (const char of newPassword) {
-        const charCode = char.charCodeAt(0);
-        if (charCode >= 48 && charCode <= 57) {
-            hasDigit = true;
-            break;
-        }
-    }
+    // checks if it has at least 1 uppercase letter
+    if (password.split('').filter(x => x >= 'A' && x <= 'Z').length === 0) return false;
 
-    for (const char of newPassword) {
-        const charCode = char.charCodeAt(0);
-        if (charCode >= 65 && charCode <= 90) {
-            hasUppercase = true;
-            break;
-        }
-    }
+    // checks if it has at least 1 lowercase letter
+    if (password.split('').filter(x => x >= 'a' && x <= 'z').length === 0) return false;
 
-    for (const char of newPassword) {
-        const charCode = char.charCodeAt(0);
-        if (charCode >= 97 && charCode <= 122) {
-            hasLowerCase = true;
-            break;
-        }
-    }
+    // checks if it has at least 1 special charcter
+    // not a number = x < '0' && x > '9'
+    // not an uppercase letter x < 'A' && 
+    // not a lowercase letter x < 'a' && x > 'z'
+    if (password.split('').filter(x => (x < '0' || x > '9') && (x < 'A' || x > 'Z') && (x < 'a' || x > 'z')).length === 0) return false;
 
-    for (const password of newPassword) {
-        let charAscii = password.charCodeAt(0);
-        if (charAscii > 32 && charAscii < 48) {
-            hasSpecialChar = true;
-            break;
-        }
-    }
+    if (password.includes(' ')) return false;
 
-    return smallLength && largeLength && noSpace && hasUppercase && hasLowerCase && hasDigit && hasSpecialChar;
+    return true;
 }
 
 console.log(isPasswordValid("")); // false
@@ -463,3 +489,49 @@ console.log(isPasswordValid("Chicago12345US!#$%")); // false
 console.log(isPasswordValid("Abcd1234$")); // true
 console.log(isPasswordValid("Chicago123$")); // true
 console.log(isPasswordValid("Test1234#")); // true
+
+// const isPasswordValid = (password) => {
+//     let newPassword = password.split('');
+//     let smallLength = password.length >= 8;
+//     let largeLength = password.length <= 16;
+//     let hasDigit = false;
+//     let hasUppercase = false;
+//     let hasLowerCase = false;
+//     let hasSpecialChar = false;
+//     let noSpace = !(password.includes(' '));
+
+
+//     for (const char of newPassword) {
+//         const charCode = char.charCodeAt(0);
+//         if (charCode >= 48 && charCode <= 57) {
+//             hasDigit = true;
+//             break;
+//         }
+//     }
+
+//     for (const char of newPassword) {
+//         const charCode = char.charCodeAt(0);
+//         if (charCode >= 65 && charCode <= 90) {
+//             hasUppercase = true;
+//             break;
+//         }
+//     }
+
+//     for (const char of newPassword) {
+//         const charCode = char.charCodeAt(0);
+//         if (charCode >= 97 && charCode <= 122) {
+//             hasLowerCase = true;
+//             break;
+//         }
+//     }
+
+//     for (const password of newPassword) {
+//         let charAscii = password.charCodeAt(0);
+//         if (charAscii > 32 && charAscii < 48) {
+//             hasSpecialChar = true;
+//             break;
+//         }
+//     }
+
+//     return smallLength && largeLength && noSpace && hasUppercase && hasLowerCase && hasDigit && hasSpecialChar;
+// }
