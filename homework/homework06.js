@@ -78,9 +78,11 @@ const checkAge = (yearOfBirth) => {
 
     let age = currentYear - yearOfBirth;
 
-    if(age < 16) console.log(`AGE IS NOT ALLOWED`);
-    if(age > 120 || currentYear > 2024) console.log(`AGE IS NOT VALID`);
-    if(age > 16) console.log(`AGE IS ALLOWED`);
+    if(age < 0) return `AGE IS NOT VALID`
+    else if(age < 16) return `AGE IS NOT ALLOWED`;
+    else if(age > 16 && age < 120) return `AGE IS ALLOWED`;
+    else return `AGE IS NOT VALID`;
+    
 }
 
 console.log(checkAge(2015)); // "AGE IS NOT ALLOWED"
@@ -96,8 +98,30 @@ Write a function named averageOfEdges() which takes three number
 arguments and will return average of min and max numbers​.
 */
 
-averageOfEdges(0, 0, 0) 		-> 0
-averageOfEdges(0, 0, 6) 		-> 3
-averageOfEdges(-2, -2, 10) 	-> 4
-averageOfEdges(-3, 15, -3) 	-> 6
-averageOfEdges(10, 13, 20) 	-> 15
+const averageOfEdges = (num1, num2, num3) => {
+    let max = Math.max(num1, num2, num3);
+    let min = Math.min(num1, num2, num3);
+
+    return (max + min) / 2;
+}
+
+console.log(averageOfEdges(0, 0, 0)); // 0
+console.log(averageOfEdges(0, 0, 6)); // 3
+console.log(averageOfEdges(-2, -2, 10)); // 4
+console.log(averageOfEdges(-3, 15, -3)); // 6
+console.log(averageOfEdges(10, 13, 20)); // 15
+
+
+// Task 6
+/*
+Write a function named noA() which takes an array of strings as argument and will 
+return a new array with all elements starting with "A" or "a" replaced with "###".
+*/
+
+const noA = (arr) => {
+    return arr.toLowerCase().replace('a', '###')
+}
+
+console.log(noA(["javascript", "hello", "123", "xyz"])); // ["javascript", "hello", "123", "xyz"]
+console.log(noA(["apple", "123", "ABC", "javascript"])); // ["###", "123", "###", "javascript"]
+console.log(noA(["apple", "abc", "ABC", "Alex", "A"])); // ["###", "###", "###", "###", "###"]
