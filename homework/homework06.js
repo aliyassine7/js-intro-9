@@ -118,10 +118,45 @@ Write a function named noA() which takes an array of strings as argument and wil
 return a new array with all elements starting with "A" or "a" replaced with "###".
 */
 
-const noA = (arr) => {
-    return arr.toLowerCase().replace('a', '###')
-}
+const noA = (arr) => arr.map(el => el.toLowerCase().startsWith('a') ? el = '###' : el);
 
 console.log(noA(["javascript", "hello", "123", "xyz"])); // ["javascript", "hello", "123", "xyz"]
 console.log(noA(["apple", "123", "ABC", "javascript"])); // ["###", "123", "###", "javascript"]
 console.log(noA(["apple", "abc", "ABC", "Alex", "A"])); // ["###", "###", "###", "###", "###"]
+
+
+// Task 7
+/*
+Write a function named no3and5() which takes an array of integer numbers as 
+argument and will return a new array with elements replaced by conditions below.
+
+If element can be divided by 5, replace it with 99​
+If element can be divided by 3, replace it with 100​
+If element can be divided by both 3 and 5, replace it with 101
+*/
+
+const no3and5 = arr => arr.map(el => el % 3 === 0 && el % 5 === 0 ? el = 101 : el % 5 === 0 ? el = 99 : el % 3 === 0 ? el = 100 : el);
+
+console.log(no3and5([7, 4, 11, 23, 17])); // [7, 4, 11, 23, 17]
+console.log(no3and5([3, 4, 5, 6])); // [100, 4, 99, 100]
+console.log(no3and5([10, 11, 12, 13, 14, 15])); // [99, 11, 100, 13, 14, 101]
+
+
+// Task 8
+/*
+Write a function named countPrimes() which takes an array of integer numbers as 
+argument and will return the number of the prime numbers in the given array.
+
+NOTE: Prime number is a number that can be divided only by 1 and itself​.
+NOTE: Negative numbers cannot be prime​.
+Examples: 2,3,5,7,11,13,17,19,23,29,31,37 etc.​
+NOTE: Smallest prime number is 2.
+*/
+
+const countPrimes = (arr) => {
+    
+}
+
+console.log(countPrimes([-10, -3, 0, 1])); // 0
+console.log(countPrimes([7, 4, 11, 23, 17])); // 4
+console.log(countPrimes([41, 53, 19, 47, 67])); // 5
