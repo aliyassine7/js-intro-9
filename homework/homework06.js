@@ -152,11 +152,34 @@ NOTE: Negative numbers cannot be prime​.
 Examples: 2,3,5,7,11,13,17,19,23,29,31,37 etc.​
 NOTE: Smallest prime number is 2.
 */
+const isPrime = num => {
+    if(num < 2) return false;
+    if(num === 2 || num === 3) return true;
+    if(num % 2 === 0 || num % 3 === 0) return false;
 
-const countPrimes = (arr) => {
-    
+    let i = 5;
+
+    while (i < num) {
+        if (num % i === 0) return false;
+        i += 2;
+    }
+
+    return true;
 }
+
+const countPrimes = (arr) => arr.reduce((acc, curr) => isPrime(curr) ? acc + 1 : acc, 0);
 
 console.log(countPrimes([-10, -3, 0, 1])); // 0
 console.log(countPrimes([7, 4, 11, 23, 17])); // 4
 console.log(countPrimes([41, 53, 19, 47, 67])); // 5
+
+// Taks 6
+/*
+Write a function named removeDuplicates() which takes an array 
+argument and returns a new array with all the duplicates removed.
+*/
+console.log(removeDuplicates([10, 20, 35, 20, 35, 60, 70, 60]) //		-> [10, 20, 35, 60, 70]
+console.log(removeDuplicates([1, 2, 5, 2, 3])// 			-> [1, 2, 5, 3]
+console.log(removeDuplicates([0, -1, -2, -2, -1])// 			-> [0, -1, -2]
+console.log(removeDuplicates(["abc", "xyz", "123", "ab", "abc", "ABC"])// 	-> ["abc", "xyz", "123", "ab", "ABC"]
+console.log(removeDuplicates(["1", "2", "3", "2", "3"]))//; // 		-> ["1", "2", "3"]
