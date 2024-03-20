@@ -27,12 +27,12 @@ NOTE: Ignore extra spaces before and after the string.
 
 const replaceFirstLast = (str) => {
     str = str.trim();
-    if(str.length < 2) return '';
+    if (str.length < 2) return '';
 
     let first = str[0];
     let middle = str.slice(1, str.length - 1);
     let last = str.at(-1);
-    
+
     return last + middle + first;
 }
 
@@ -80,11 +80,11 @@ const checkAge = (yearOfBirth) => {
 
     let age = currentYear - yearOfBirth;
 
-    if(age < 0) return `AGE IS NOT VALID`
-    else if(age < 16) return `AGE IS NOT ALLOWED`;
-    else if(age > 16 && age < 120) return `AGE IS ALLOWED`;
+    if (age < 0) return `AGE IS NOT VALID`
+    else if (age < 16) return `AGE IS NOT ALLOWED`;
+    else if (age > 16 && age < 120) return `AGE IS ALLOWED`;
     else return `AGE IS NOT VALID`;
-    
+
 }
 
 console.log(checkAge(2015)); // "AGE IS NOT ALLOWED"
@@ -155,9 +155,9 @@ Examples: 2,3,5,7,11,13,17,19,23,29,31,37 etc.​
 NOTE: Smallest prime number is 2.
 */
 const isPrime = num => {
-    if(num < 2) return false;
-    if(num === 2 || num === 3) return true;
-    if(num % 2 === 0 || num % 3 === 0) return false;
+    if (num < 2) return false;
+    if (num === 2 || num === 3) return true;
+    if (num % 2 === 0 || num % 3 === 0) return false;
 
     let i = 5;
 
@@ -204,8 +204,8 @@ So, it must be presented as <2digits>/<2digits>/<4digits>
 const isDateFormatValid = (str) => {
     const [month, day, year] = str.split('/');
 
-    if(month > 12 || month < 1) return false;
-    if(day < 1 || day > 31) return false;
+    if (month > 12 || month < 1) return false;
+    if (day < 1 || day > 31) return false;
 
     return month.trim().length === 2 && day.trim().length === 2 && year.trim().length === 4;
 }
@@ -234,14 +234,14 @@ NOTE: Be careful when there is multiple max numbers.
 const secondMax = arr => {
     // Find the maximum number in the array
     const max = Math.max(...arr);
-    
+
     // Filter out all occurrences of the maximum number
     arr = arr.filter(num => num !== max);
-    
+
     // If the array is empty (meaning all elements were equal to the maximum),
     // return the maximum number itself
     if (arr.length === 0) return max;
-    
+
     // Otherwise, return the maximum number in the filtered array,
     // which will be the second maximum
     return Math.max(...arr);
@@ -265,10 +265,10 @@ NOTE: Be careful when there is multiple min numbers.
 
 const secondMin = arr => {
     const min = Math.min(...arr);
-    
+
     arr = arr.filter(num => num !== min);
 
-    if(arr.length === 0) return min;
+    if (arr.length === 0) return min;
 
     return Math.min(...arr);
 }
@@ -295,3 +295,30 @@ console.log(mostRepeated([4, 7, 4, 4, 4, 23, 23, 23])); // 4
 console.log(mostRepeated(["pen", "pencil", "pen", "123", "abc", "pen", "pencil"])); // "pen"
 console.log(mostRepeated([10])); // 10
 console.log(mostRepeated(["TechGlobal"])); // "TechGlobal"
+
+
+// const mostRepeated = arr => {
+//     // Create an object to store the count of each element
+//     const countMap = {};
+
+//     // Iterate through the array and update the count for each element
+//     arr.forEach(element => {
+//         if (countMap[element]) {
+//             countMap[element]++;
+//         } else {
+//             countMap[element] = 1;
+//         }
+//     });
+
+//     // Find the element with the maximum count
+//     let mostRepeatedElement;
+//     let maxCount = 0;
+//     for (const element in countMap) {
+//         if (countMap[element] > maxCount) {
+//             maxCount = countMap[element];
+//             mostRepeatedElement = element;
+//         }
+//     }
+
+//     return mostRepeatedElement;
+// }
