@@ -274,3 +274,5 @@ console.log(mostRepeated([4, 7, 4, 4, 4, 23, 23, 23])); // 4
 console.log(mostRepeated(["pen", "pencil", "pen", "123", "abc", "pen", "pencil"])); // "pen"
 console.log(mostRepeated([10])); // 10
 console.log(mostRepeated(["TechGlobal"])); // "TechGlobal"
+
+
