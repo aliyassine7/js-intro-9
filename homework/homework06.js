@@ -45,8 +45,8 @@ console.log(replaceFirstLast("   A   ")); // ""
 
 // Task 3
 /*
-Write a function named hasVowel() which takes a string argument and returns 
-true if the string has a vowel, returns false if the string doesn’t contain any vowel letter.
+Write a function named hasVowel() which takes a string argument and returns true if 
+the string has a vowel, returns false if the string doesn’t contain any vowel letter.
 
 NOTE: Vowels are = a, e, o, u, i.
 NOTE: Ignore upper/lower cases.
@@ -167,19 +167,110 @@ const isPrime = num => {
     return true;
 }
 
-const countPrimes = (arr) => arr.reduce((acc, curr) => isPrime(curr) ? acc + 1 : acc, 0);
+const countPrimes = arr => arr.reduce((acc, curr) => isPrime(curr) ? acc + 1 : acc, 0);
 
 console.log(countPrimes([-10, -3, 0, 1])); // 0
 console.log(countPrimes([7, 4, 11, 23, 17])); // 4
 console.log(countPrimes([41, 53, 19, 47, 67])); // 5
 
-// Taks 6
+// Task 9
 /*
 Write a function named removeDuplicates() which takes an array 
 argument and returns a new array with all the duplicates removed.
 */
-console.log(removeDuplicates([10, 20, 35, 20, 35, 60, 70, 60]) //		-> [10, 20, 35, 60, 70]
-console.log(removeDuplicates([1, 2, 5, 2, 3])// 			-> [1, 2, 5, 3]
-console.log(removeDuplicates([0, -1, -2, -2, -1])// 			-> [0, -1, -2]
-console.log(removeDuplicates(["abc", "xyz", "123", "ab", "abc", "ABC"])// 	-> ["abc", "xyz", "123", "ab", "ABC"]
-console.log(removeDuplicates(["1", "2", "3", "2", "3"]))//; // 		-> ["1", "2", "3"]
+
+const removeDuplicates = arr => arr.reduce((newArray, el) => !(newArray.includes(el)) ? newArray.concat(el) : newArray, [])
+
+
+console.log(removeDuplicates([10, 20, 35, 20, 35, 60, 70, 60])); // [10, 20, 35, 60, 70]
+console.log(removeDuplicates([1, 2, 5, 2, 3])); // [1, 2, 5, 3]
+console.log(removeDuplicates([0, -1, -2, -2, -1])); // [0, -1, -2]
+console.log(removeDuplicates(["abc", "xyz", "123", "ab", "abc", "ABC"])); // ["abc", "xyz", "123", "ab", "ABC"]
+console.log(removeDuplicates(["1", "2", "3", "2", "3"]))// ["1", "2", "3"]
+
+
+// Task 10
+/*
+Write a method named isDateFormatValid() that takes a string as an argument 
+and returns true if the given date is valid or returns false otherwise.
+
+Expected Format: nn/nn/nnnn
+So, it must be presented as <2digits>/<2digits>/<4digits>
+*/
+
+const isDateFormatValid = (str) => {
+    const [month, day, year] = str.split('/');
+
+    if(month > 12 || month < 1) return false;
+    if(day < 1 || day > 31) return false;
+
+    return month.trim().length === 2 && day.trim().length === 2 && year.trim().length === 4;
+}
+
+console.log(isDateFormatValid("")); // false
+console.log(isDateFormatValid("15/30/2020")); // false
+console.log(isDateFormatValid("10-30-2020 ")); // false
+console.log(isDateFormatValid("10.30.2020")); // false
+console.log(isDateFormatValid("5/30/2020")); // false
+console.log(isDateFormatValid("05/30/2020 ")); // true
+console.log(isDateFormatValid("10/2/2020")); // false
+console.log(isDateFormatValid("10/02/2020 ")); // true
+
+
+// Task 11
+/*
+Write a method named secondMax() takes an array argument 
+and returns the second max number from the array.
+
+NOTE: Assume that you will not be given empty array and if the
+array has only 1 element, it will be returned as second max number.
+
+NOTE: Be careful when there is multiple max numbers.
+*/
+
+const secondMax = (arr) => {
+    arr.filter()
+}
+
+console.log(secondMax([7, 4, 4, 4, 23, 23, 23])); // 7
+console.log(secondMax([3, 4, 5, 6])); // 5
+console.log(secondMax([10])); // 10
+
+
+// Task 12
+/*
+Write a method named secondMin() takes an array argument
+and returns the second min number from the array.
+
+NOTE: Assume that you will not be given empty array and if the 
+array has only 1 element, it will be returned as second min number.
+
+NOTE: Be careful when there is multiple min numbers.
+*/
+
+const secondMin = () => {
+    
+}
+
+console.log(secondMax([7, 4, 4, 4, 23, 23, 23])); // 7
+console.log(secondMax([3, 4, 5, 6])); // 4
+console.log(secondMax([10])); // 10
+
+
+// Task 13
+/*
+Write a method named mostRepeated() takes an array argument
+and returns the most counted element from the array.
+
+NOTE: Assume that you will not be given empty array and the 
+count of one element will always be more than the others.
+*/
+
+const mostRepeated = (arr) => {
+
+}
+
+console.log(mostRepeated([4, 7, 4, 4, 4, 23, 23, 23])); // 4
+console.log(mostRepeated(["pen", "pencil", "pen", "123", "abc", "pen", "pencil"])); // "pen"
+console.log(mostRepeated([10])); // 10
+console.log(mostRepeated(["TechGlobal"])); // "TechGlobal"
