@@ -280,3 +280,4 @@ console.log(mostRepeated([10])); // 10
 console.log(mostRepeated(["TechGlobal"])); // "TechGlobal"
 
 
+
