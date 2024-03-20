@@ -170,13 +170,12 @@ const isPrime = num => {
 }
 
 const countPrimes = arr => arr.reduce((acc, curr) => isPrime(curr) ? acc + 1 : acc, 0);
-const countPrimes = arr => arr.reduce((acc, curr) => isPrime(curr) ? acc + 1 : acc, 0);
 
 console.log(countPrimes([-10, -3, 0, 1])); // 0
 console.log(countPrimes([7, 4, 11, 23, 17])); // 4
 console.log(countPrimes([41, 53, 19, 47, 67])); // 5
 
-// Task 9
+
 // Task 9
 /*
 Write a function named removeDuplicates() which takes an array 
@@ -232,8 +231,20 @@ array has only 1 element, it will be returned as second max number.
 NOTE: Be careful when there is multiple max numbers.
 */
 
-const secondMax = (arr) => {
-    arr.filter()
+const secondMax = arr => {
+    // Find the maximum number in the array
+    const max = Math.max(...arr);
+    
+    // Filter out all occurrences of the maximum number
+    arr = arr.filter(num => num !== max);
+    
+    // If the array is empty (meaning all elements were equal to the maximum),
+    // return the maximum number itself
+    if (arr.length === 0) return max;
+    
+    // Otherwise, return the maximum number in the filtered array,
+    // which will be the second maximum
+    return Math.max(...arr);
 }
 
 console.log(secondMax([7, 4, 4, 4, 23, 23, 23])); // 7
@@ -252,13 +263,19 @@ array has only 1 element, it will be returned as second min number.
 NOTE: Be careful when there is multiple min numbers.
 */
 
-const secondMin = () => {
+const secondMin = arr => {
+    const min = Math.min(...arr);
     
+    arr = arr.filter(num => num !== min);
+
+    if(arr.length === 0) return min;
+
+    return Math.min(...arr);
 }
 
-console.log(secondMax([7, 4, 4, 4, 23, 23, 23])); // 7
-console.log(secondMax([3, 4, 5, 6])); // 4
-console.log(secondMax([10])); // 10
+console.log(secondMin([7, 4, 4, 4, 23, 23, 23])); // 7
+console.log(secondMin([3, 4, 5, 6])); // 4
+console.log(secondMin([10])); // 10
 
 
 // Task 13
@@ -270,7 +287,7 @@ NOTE: Assume that you will not be given empty array and the
 count of one element will always be more than the others.
 */
 
-const mostRepeated = (arr) => {
+const mostRepeated = arr => {
 
 }
 
@@ -278,6 +295,3 @@ console.log(mostRepeated([4, 7, 4, 4, 4, 23, 23, 23])); // 4
 console.log(mostRepeated(["pen", "pencil", "pen", "123", "abc", "pen", "pencil"])); // "pen"
 console.log(mostRepeated([10])); // 10
 console.log(mostRepeated(["TechGlobal"])); // "TechGlobal"
-
-
-
