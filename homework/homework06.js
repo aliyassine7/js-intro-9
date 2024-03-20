@@ -47,6 +47,8 @@ console.log(replaceFirstLast("   A   ")); // ""
 /*
 Write a function named hasVowel() which takes a string argument and returns true if 
 the string has a vowel, returns false if the string doesn’t contain any vowel letter.
+Write a function named hasVowel() which takes a string argument and returns true if 
+the string has a vowel, returns false if the string doesn’t contain any vowel letter.
 
 NOTE: Vowels are = a, e, o, u, i.
 NOTE: Ignore upper/lower cases.
@@ -168,11 +170,13 @@ const isPrime = num => {
 }
 
 const countPrimes = arr => arr.reduce((acc, curr) => isPrime(curr) ? acc + 1 : acc, 0);
+const countPrimes = arr => arr.reduce((acc, curr) => isPrime(curr) ? acc + 1 : acc, 0);
 
 console.log(countPrimes([-10, -3, 0, 1])); // 0
 console.log(countPrimes([7, 4, 11, 23, 17])); // 4
 console.log(countPrimes([41, 53, 19, 47, 67])); // 5
 
+// Task 9
 // Task 9
 /*
 Write a function named removeDuplicates() which takes an array 
