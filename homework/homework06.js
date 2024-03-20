@@ -289,36 +289,33 @@ count of one element will always be more than the others.
 
 const mostRepeated = arr => {
 
+    // Create an object to store the count of each element
+    const countMap = {};
+
+    // Iterate through the array and update the count for each element
+    arr.forEach(element => {
+        if (countMap[element]) {
+            countMap[element]++;
+        } else {
+            countMap[element] = 1;
+        }
+    });
+
+    // Find the element with the maximum count
+    let mostRepeatedElement;
+    let maxCount = 0;
+    for (const element in countMap) {
+        if (countMap[element] > maxCount) {
+            maxCount = countMap[element];
+            mostRepeatedElement = element;
+        }
+    }
+
+    return mostRepeatedElement;
+
 }
 
 console.log(mostRepeated([4, 7, 4, 4, 4, 23, 23, 23])); // 4
 console.log(mostRepeated(["pen", "pencil", "pen", "123", "abc", "pen", "pencil"])); // "pen"
 console.log(mostRepeated([10])); // 10
 console.log(mostRepeated(["TechGlobal"])); // "TechGlobal"
-
-
-// const mostRepeated = arr => {
-//     // Create an object to store the count of each element
-//     const countMap = {};
-
-//     // Iterate through the array and update the count for each element
-//     arr.forEach(element => {
-//         if (countMap[element]) {
-//             countMap[element]++;
-//         } else {
-//             countMap[element] = 1;
-//         }
-//     });
-
-//     // Find the element with the maximum count
-//     let mostRepeatedElement;
-//     let maxCount = 0;
-//     for (const element in countMap) {
-//         if (countMap[element] > maxCount) {
-//             maxCount = countMap[element];
-//             mostRepeatedElement = element;
-//         }
-//     }
-
-//     return mostRepeatedElement;
-// }
