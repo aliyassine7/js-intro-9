@@ -182,8 +182,9 @@ Write a function named removeDuplicates() which takes an array
 argument and returns a new array with all the duplicates removed.
 */
 
-const removeDuplicates = arr => arr.reduce((newArray, el) => !(newArray.includes(el)) ? newArray.concat(el) : newArray, [])
+const removeDuplicates = arr => arr.reduce((newArray, el) => !(newArray.includes(el)) ? newArray.concat(el) : newArray, []);
 
+// const removeDuplicates = arr => arr.filter((el, i) => arr.indexOf(el) === i);
 
 console.log(removeDuplicates([10, 20, 35, 20, 35, 60, 70, 60])); // [10, 20, 35, 60, 70]
 console.log(removeDuplicates([1, 2, 5, 2, 3])); // [1, 2, 5, 3]
@@ -206,6 +207,7 @@ const isDateFormatValid = (str) => {
 
     if (month > 12 || month < 1) return false;
     if (day < 1 || day > 31) return false;
+    if (year < 1 || year > 9999) return false;
 
     return month.trim().length === 2 && day.trim().length === 2 && year.trim().length === 4;
 }
@@ -272,6 +274,34 @@ const secondMin = arr => {
 
     return Math.min(...arr);
 }
+// const secondMin = arr => {
+
+//     arr = arr.sort((a, b) => a - b)
+//     let min = Math.min(...arr);
+
+//     for(let el of arr) {
+//         if (el > min) return el
+//     }
+//     return min;
+// }
+
+//     let min = Infinity;
+//     let secondMin = Infinity;
+
+//     for(let el of arr) {
+//         if(el < min) {
+//             min = el;
+//         }
+//         else {
+//             if(el < secondMin && el !== min) {
+//                 secondMin = el;
+//             }
+//         }
+//     }
+
+//     return secondMin === Infinity ? min : secondMin;
+// 
+
 
 console.log(secondMin([7, 4, 4, 4, 23, 23, 23])); // 7
 console.log(secondMin([3, 4, 5, 6])); // 4
@@ -282,7 +312,7 @@ console.log(secondMin([10])); // 10
 /*
 Write a method named mostRepeated() takes an array argument
 and returns the most counted element from the array.
-
+ 
 NOTE: Assume that you will not be given empty array and the 
 count of one element will always be more than the others.
 */
