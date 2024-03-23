@@ -22,7 +22,7 @@ returns a new string with all digits removed from the original string​.
 */
 
 const noDigit = str => {
-    
+    return str.split('').filter(x => !(x >= 0 && x <= 9)).join('');
 }
 
 console.log(noDigit("")); // ""
@@ -37,6 +37,10 @@ console.log(noDigit("123Tech456Global149")); // "TechGlobal"
 Write a function named noVowel() which takes a string argument and 
 returns a new string with all vowels removed from the original string​.
 */
+
+const noVowel = str => {
+    
+}
 
 console.log(noVowel("TechGlobal")); // "TchGlbl"
 console.log(noVowel("AEOxyz")); // "xyz"
