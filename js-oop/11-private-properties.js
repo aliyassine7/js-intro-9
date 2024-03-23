@@ -1,6 +1,6 @@
 class Author {
     // Private properties - can only be used within the class
-    #isKnown = true; //by default it is true but could be undefined 
+    #isKnown = true; // by default it is true but could be undefined 
 
     getIsKnown() {
         return this.#isKnown;
@@ -10,12 +10,12 @@ class Author {
         this.#isKnown = newValue;
     }
 
-    // Another way to create setter and getter
-    // get isKnown() {
+    // Another way to create setter and getter properties
+    // get isKnown () {
     //     return this.#isKnown;
     // }
 
-    // set isKnown(newValue) {
+    // set isKnown (newValue) {
     //     this.#isKnown = newValue;
     // }
 
