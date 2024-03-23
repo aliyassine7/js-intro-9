@@ -34,8 +34,31 @@ const author = new Author('George R.R.', 'Martin', 'United States', [book1, book
 
 console.log(author.getFullName());
 
-// console.log(author.getBooks());
-
-for(const book of author.getBooks()) {
+for (const book of author.getBooks()) {
     console.log(book);
+}
+
+
+
+// Part 4
+function AuthorProto(firstName, lastName, country, books) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.country = country;
+    this.books = books;
+}
+
+AuthorProto.prototype.getFullName = function () {
+    return `${this.firstName} ${this.lastName}`;
+}
+
+AuthorProto.prototype.getBooks = function () {
+    return this.books;
+}
+
+
+function Book(title, genre, page) {
+    this.title = title;
+    this.genre = genre;
+    this.page = page;
 }

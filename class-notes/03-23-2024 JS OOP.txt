@@ -1,0 +1,12 @@
+
+
+What IS-A-RELATIONSHIP
+-That means inheritance: one class inheriting functions and properties from another class using key-value pairs
+Ex: Person/Singer or Person/Author
+Ex: Member/VIPMember
+
+Inheritance = IS A RELATIONSHIP
+
+
+What HAS-A-RELATIONSHIP?
+-This is not inheritance but 2 classes related to each other. Especially one class using th eother as a properties
