@@ -25,7 +25,7 @@ NOTE: If the length is less than 2, return an empty string.
 NOTE: Ignore extra spaces before and after the string.
 */
 
-const replaceFirstLast = (str) => {
+const replaceFirstLast = str => {
     str = str.trim();
     if (str.length < 2) return '';
 
@@ -202,7 +202,7 @@ Expected Format: nn/nn/nnnn
 So, it must be presented as <2digits>/<2digits>/<4digits>
 */
 
-const isDateFormatValid = (str) => {
+const isDateFormatValid = str => {
     const [month, day, year] = str.split('/');
 
     if (month > 12 || month < 1) return false;
