@@ -5,7 +5,7 @@ and return true if there is an uppercase letter and false otherwise.
 */
 
 const hasUpperCase = str => {
-    if(str.split('').filter(x => x >= 'A' && x <= 'Z').length > 0) return true
+    if (str.split('').filter(x => x >= 'A' && x <= 'Z').length > 0) return true
     else return false;
 }
 
@@ -39,14 +39,14 @@ returns a new string with all vowels removed from the original string​.
 */
 
 const noVowel = str => {
-    
+    return str.split('')
 }
 
 console.log(noVowel("TechGlobal")); // "TchGlbl"
 console.log(noVowel("AEOxyz")); // "xyz"
 console.log(noVowel("Javascript")); // "Jvscrpt"
 console.log(noVowel("")); // ""
-console.log(noVowel("125$") ); // "125$"
+console.log(noVowel("125$")); // "125$"
 
 
 // Task 4
@@ -55,9 +55,11 @@ Write a function named no13() which takes an array of numbers as
 argument and return a new array with all 13s replaced with 0s. 
 */
 
-console.log(no13([1, 2, 3 ,4])); // [1, 2, 3 ,4] 
+const no13 = arr => arr.map(num => num === 13 ? 0 : num)
+
+console.log(no13([1, 2, 3, 4])); // [1, 2, 3 ,4] 
 console.log(no13([13, 2, 3])); // [0, 2, 3]
-console.log(no13([13, 13, 13 , 13, 13])); // [0, 0, 0, 0, 0]
+console.log(no13([13, 13, 13, 13, 13])); // [0, 0, 0, 0, 0]
 console.log(no13([])); // []
 
 
@@ -66,6 +68,11 @@ console.log(no13([])); // []
 Write a function named middleInt() which takes 
 three number arguments and return the middle number. 
 */
+
+const middleInt = (num1, num2, num3) => {
+    const sortedNums = [num1, num2, num3].sort((a, b) => a - b);
+    return sortedNums[1];
+}
 
 console.log(middleInt(1, 2, 2)); // 2
 console.log(middleInt(5, 5, 8)); // 5
@@ -80,6 +87,12 @@ Write a function named sumOfDigits() which takes a string
 argument and returns sum of all digits from the original string.
 */
 
+const sumOfDigits = str => {
+    let num = str.split('').filter(x => x >= 0 && x <= 9);
+
+    return num + num;
+}
+
 console.log(sumOfDigits("Javascript")); // 0
 console.log(sumOfDigits("John's age is 29")); // 11
 console.log(sumOfDigits("$125.0")); // 8
@@ -92,9 +105,19 @@ Write a function named arrFactorial() which takes an array of numbers as
 argument and return the array with every number replaced with their factorials.
 */
 
-console.log(arrFactorial([1, 2, 3 ,4])); // [1, 2, 6, 24]
-console.log(arrFactorial([0, 5])); // [1,120]
-console.log(arrFactorial([5 , 0, 6])); // [120, 1, 720]
+const factorial = num => {
+    let result = 1;
+    for (let i = 2; i <= num; i++) {
+        result *= i;
+    }
+    return result;
+}
+
+const arrFactorial = arr => arr.map(factorial)
+
+console.log(arrFactorial([1, 2, 3, 4])); // [1, 2, 6, 24]
+console.log(arrFactorial([0, 5])); // [1, 120]
+console.log(arrFactorial([5, 0, 6])); // [120, 1, 720]
 console.log(arrFactorial([])); // []
 
 
@@ -103,6 +126,16 @@ console.log(arrFactorial([])); // []
 Write a function named categorizeCharacters() which takes a string word as argument and 
 return an array as letters at index of 0, digits at index of 1 and specials at index of 2.
 */
+
+const categorizeCharacters = str => {
+    let letters = str.split('').filter(x => x >= 'a' && x <= 'z').join('');
+
+    let numbers = str.split('').filter(x => x >= 0 && x <= 9).join('');
+
+    let specials = str.split('').filter(x => (x < '0' || x > '9') && (x < 'A' || x > 'Z') && (x < 'a' || x > 'z')).join('');
+
+    return [letters, numbers, specials];
+}
 
 console.log(categorizeCharacters("1234")); // [ '' , '1234', '' ] 
 console.log(categorizeCharacters("abc123$#%")); // [ 'abc', '123', '$#%' ]
