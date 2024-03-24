@@ -22,7 +22,7 @@ returns a new string with all digits removed from the original string​.
 */
 
 const noDigit = str => {
-    return str.split('').filter(x => !(x >= 0 && x <= 9)).join('');
+    return [...str].filter(x => !(x >= 0 && x <= 9)).join('');
 }
 
 console.log(noDigit("")); // ""
