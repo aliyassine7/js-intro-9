@@ -22,7 +22,7 @@ returns a new string with all digits removed from the original string​.
 */
 
 const noDigit = str => {
-    return [...str].filter(x => !(x >= 0 && x <= 9)).join('');
+    return str.split('').filter(x => !(x >= '0' && x <= '9')).join('');
 }
 
 console.log(noDigit("")); // ""
@@ -130,7 +130,7 @@ return an array as letters at index of 0, digits at index of 1 and specials at i
 const categorizeCharacters = str => {
     let letters = str.split('').filter(x => x >= 'a' && x <= 'z').join('');
 
-    let numbers = str.split('').filter(x => x >= 0 && x <= 9).join('');
+    let numbers = str.split('').filter(x => x >= '0' && x <= '0').join('');
 
     let specials = str.split('').filter(x => (x < '0' || x > '9') && (x < 'A' || x > 'Z') && (x < 'a' || x > 'z')).join('');
 
