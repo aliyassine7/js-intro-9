@@ -88,9 +88,7 @@ argument and returns sum of all digits from the original string.
 */
 
 const sumOfDigits = str => {
-    let num = str.split('').filter(x => x >= 0 && x <= 9);
-
-    return num + num;
+    return str.split('').reduce((total, curr) => (curr >= '0' && curr <= '9') ? total + Number(curr) : total, 0);
 }
 
 console.log(sumOfDigits("Javascript")); // 0
