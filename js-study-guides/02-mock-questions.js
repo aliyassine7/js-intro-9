@@ -14,7 +14,7 @@ doubleOrTripleWord("22") -> "222222"
 */
 
 const doubleOrTripleWord = word => {
-    return word.repeat(3);
+    return word.length % 2 === 0 ? word.repeat(3) : word.repeat(2);
 }
 
 console.log(doubleOrTripleWord("Tech")); // "TechTechTech"
@@ -39,9 +39,9 @@ firstLastWord("") -> ""
 firstLastWord(" ") -> ""
 */
 
-const firstLastWord = str => {
-    return str.trim().split(' ')[0] + str.trim().split(' ').at(-1);
-}
+// const firstLastWord = str => {
+//     return str.trim().split(' ')[0] + str.trim().split(' ').at(-1);
+// }
 
 console.log(firstLastWord("Hello World")); // "HelloWorld"
 console.log(firstLastWord("I like JavaScript")); // "IJavaScript”
