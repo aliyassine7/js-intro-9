@@ -43,6 +43,11 @@ firstLastWord(" ") -> ""
 //     return str.trim().split(' ')[0] + str.trim().split(' ').at(-1);
 // }
 
+const firstLastWord = str => {
+    str = str.trim();
+    
+}
+
 console.log(firstLastWord("Hello World")); // "HelloWorld"
 console.log(firstLastWord("I like JavaScript")); // "IJavaScript”
 console.log(firstLastWord("Hello")); // "HelloHello"
