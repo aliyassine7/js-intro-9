@@ -31,7 +31,7 @@ argument and returns a multidimensional array with all numbers squared.
 */
 
 const numberAndSquare = arr => {
-    
+    return arr.map(x => [x, x ** 2])
 }
 
 console.log(numberAndSquare([1, 2, 3])); //      -> [[1, 1], [2, 4], [3, 9]]
