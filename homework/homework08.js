@@ -128,6 +128,8 @@ const noXInVariables = arr => {
         }
         else return element;
     });
+    
+    // completely remove the element from the array
     return arr.filter(x => x !== '');
 }
 
