@@ -30,7 +30,7 @@ Write a function named numberAndSquare() which takes an array of numbers as
 argument and returns a multidimensional array with all numbers squared. 
 */
 
-const numberAndSquare = arr => arr.map(x => [x, x ** 2])
+const numberAndSquare = arr => arr.map(x => [x, x ** 2]);
 
 
 console.log(numberAndSquare([1, 2, 3])); //      -> [[1, 1], [2, 4], [3, 9]]
@@ -47,7 +47,7 @@ If it doesn't exist, return false.
     NOTE: The method is case-sensitive.
 */
     
-const containsValue = (arr, str) => arr.some(x => x.includes(str))
+const containsValue = (arr, str) => arr.some(x => x.includes(str));
 
 console.log(containsValue(["abc", "foo", "javascript"], "hello")); //                -> false
 console.log(containsValue(["abc", "def", "123"], "Abc")); //                         -> false
@@ -55,8 +55,24 @@ console.log(containsValue(["abc", "def", "123", "Javascript", "Hello"], "123"));
 
 /* Task-5
 Write a function named reverseSentence() which takes a string as argument and returns 
-the words in reverse order.​ If there is no enough words reverse, return "There is not enough words!".
+the words in reverse order.​ If there is not enough words to reverse, return "There is not enough words!".
+
+NOTE: make sure that the first letter of the reversed sentence is capitalized.
 */
+
+const reverseSentence = str => {
+    const words = str.split(' ');
+
+    if(words.length < 2) return `There is not enough words!`;
+
+    let reversedWords = words.reverse().join(' ').toLowerCase();
+
+    // Capitalize the first letter of the reversed sentence
+    reversedWords = reversedWords[0].toUpperCase() + reversedWords.slice(1);
+    // reversedWords = reversedWords.charAt(0).toUpperCase() + reversedWords.slice(1);
+
+    return reversedWords;
+}
 
 console.log(reverseSentence("Hello")); //                -> "There is not enough words!"
 console.log(reverseSentence("Javascript is fun")); //    -> "Fun is javascript"
@@ -67,6 +83,8 @@ Write a function named removeStringSpecialsDigits() which takes a string as argu
 a string without the special characters or digits.
 */
 
+const removeStringSpecialsDigits = str => [...str].filter(x => x >= 'a' && x <= 'z' || x >= 'A' && x <= 'Z' || x === (' ')).join('')
+
 console.log(removeStringSpecialsDigits("123Javascript #$%is fun")); //   -> "Javascript is fun" 
 console.log(removeStringSpecialsDigits("Cypress")); //                   -> "Cypress"
 console.log(removeStringSpecialsDigits("Automation123#$%")); //          -> "Automation"
@@ -75,6 +93,8 @@ console.log(removeStringSpecialsDigits("Automation123#$%")); //          -> "Aut
 Write a function named removeArraySpecialsDigits() which takes a string array as argument and return 
 back without the special characters or digits.
 */
+
+const removeArraySpecialsDigits = arr => arr.map(str => removeStringSpecialsDigits(str))
 
 console.log(removeArraySpecialsDigits(["123Javascript", "#$%is", "fun"])); //    -> ["Javascript", "is", "fun"]
 console.log(removeArraySpecialsDigits(["Cypress", "123$%", "###"])); //          -> ["Cypress", "", ""]
