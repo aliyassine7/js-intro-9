@@ -30,9 +30,8 @@ Write a function named numberAndSquare() which takes an array of numbers as
 argument and returns a multidimensional array with all numbers squared. 
 */
 
-const numberAndSquare = arr => {
-    return arr.map(x => [x, x ** 2])
-}
+const numberAndSquare = arr => arr.map(x => [x, x ** 2])
+
 
 console.log(numberAndSquare([1, 2, 3])); //      -> [[1, 1], [2, 4], [3, 9]]
 console.log(numberAndSquare([0, 3, -6])); //     -> [[0, 0], [3, 9], [-6, 36]]
@@ -48,6 +47,8 @@ If it doesn't exist, return false.
     NOTE: The method is case-sensitive.
 */
     
+const containsValue = (arr, str) => arr.some(x => x.includes(str))
+
 console.log(containsValue(["abc", "foo", "javascript"], "hello")); //                -> false
 console.log(containsValue(["abc", "def", "123"], "Abc")); //                         -> false
 console.log(containsValue(["abc", "def", "123", "Javascript", "Hello"], "123")); //  -> true
