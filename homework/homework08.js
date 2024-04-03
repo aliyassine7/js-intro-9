@@ -46,7 +46,7 @@ If it doesn't exist, return false.
     NOTE: Assume that array size is at least 1.
     NOTE: The method is case-sensitive.
 */
-    
+
 const containsValue = (arr, str) => arr.some(x => x.includes(str));
 
 console.log(containsValue(["abc", "foo", "javascript"], "hello")); //                -> false
@@ -63,7 +63,7 @@ NOTE: make sure that the first letter of the reversed sentence is capitalized.
 const reverseSentence = str => {
     const words = str.split(' ');
 
-    if(words.length < 2) return `There is not enough words!`;
+    if (words.length < 2) return `There is not enough words!`;
 
     let reversedWords = words.reverse().join(' ').toLowerCase();
 
@@ -102,11 +102,11 @@ console.log(removeArraySpecialsDigits(["Automation", "123#$%tool"])); //        
 
 /* Task-8
 Write a function named getCommons() which takes two string arrays as arguments and returns all the common words. 
+
+NOTE: Make sure you deal with common words that occur more than once in the same array
 */
 
-const getCommons = (arr1, arr2) => {
-    return arr1.filter(word => arr2.includes(word));
-}
+const getCommons = (arr1, arr2) => arr1.filter(word => arr2.includes(word));
 
 console.log(getCommons(["Javascript", "is", "fun"], ["abc", "xyz", "123"])); //            -> []
 console.log(getCommons(["Javascript", "is", "fun"], ["Javascript", "C#", "Python"])); //   -> ["Javascript"]
@@ -115,11 +115,20 @@ console.log(getCommons(["Javascript", "C#", "C#"], ["Python", "C#", "C++"])); //
 /* Task-9
 Write a function named noXInVariables() which takes an array as argument and returns 
 an array that all the x or X removed from the elements.
-    NOTE: If the element is existing of x or X letters only, then completely remove the element.
+
+NOTE: If the element is existing of x or X letters only, then completely remove the element.
 */
 
 const noXInVariables = arr => {
-    
+    arr = arr.map(element => {
+        if (typeof element === 'string') {
+            return element.split('').filter(letter => {
+                return letter.toLowerCase() !== 'x'
+            }).join('');
+        }
+        else return element;
+    });
+    return arr.filter(x => x !== '');
 }
 
 console.log(noXInVariables(["abc", 123, "#$%"])); //         -> ["abc", 123, "#$%"]
