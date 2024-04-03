@@ -100,9 +100,13 @@ console.log(removeArraySpecialsDigits(["123Javascript", "#$%is", "fun"])); //   
 console.log(removeArraySpecialsDigits(["Cypress", "123$%", "###"])); //          -> ["Cypress", "", ""]
 console.log(removeArraySpecialsDigits(["Automation", "123#$%tool"])); //         -> ["Automation", "tool"]
 
-/* Task-8 (try to make sure it works with multiple common strings)
-Write a function named getCommons() which takes two string arrays as arguments and returns all the common words.
+/* Task-8
+Write a function named getCommons() which takes two string arrays as arguments and returns all the common words. 
 */
+
+const getCommons = (arr1, arr2) => {
+    return arr1.filter(word => arr2.includes(word));
+}
 
 console.log(getCommons(["Javascript", "is", "fun"], ["abc", "xyz", "123"])); //            -> []
 console.log(getCommons(["Javascript", "is", "fun"], ["Javascript", "C#", "Python"])); //   -> ["Javascript"]
@@ -113,6 +117,10 @@ Write a function named noXInVariables() which takes an array as argument and ret
 an array that all the x or X removed from the elements.
     NOTE: If the element is existing of x or X letters only, then completely remove the element.
 */
+
+const noXInVariables = arr => {
+    
+}
 
 console.log(noXInVariables(["abc", 123, "#$%"])); //         -> ["abc", 123, "#$%"]
 console.log(noXInVariables(["xyz", 123, "#$%"])); //         -> ["yz", 123, "#$%"]
