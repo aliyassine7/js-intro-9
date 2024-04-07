@@ -5,10 +5,21 @@
 // Step 1
 // Get elements
 // input, btn, result
+const heightEl = document.getElementById('height');
+const weightEl = document.getElementById('weight');
+const btnEl = document.querySelector('button');
+const resultsEl = document.querySelector('#results');
 
 // Step 2
-// Attach an event
 // Get values
+// Attach an event
+btnEl.addEventListener('click', (event) => {
+    const heightValue = Number(heightEl.value);
+    const weightValue = Number(weightEl.value);
+    event.preventDefault();
+    let bmi = weightValue / (heightValue / 100) ** 2;
+    resultsEl.innerHTML = `BMI is ${bmi.toFixed(2)}`;
+})
 // Do calculations
 
 // Step 3
