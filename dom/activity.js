@@ -31,7 +31,7 @@ if(userName) {
     }
 
     // 3
-    console.log(`You window dimesnions height: ${innerHeight} and width: ${innerWidth}`);
+    console.log(`Your window dimesnions height: ${innerHeight} and width: ${innerWidth}`);
 
     // 4
     console.log('Page will be reloading in 5 seconds ...');
