@@ -1,5 +1,5 @@
 /**
- * bmi = weight / height ^ 2
+ * bmi = weight / (height / 100)^2
  */
 
 // Step 1
@@ -17,7 +17,9 @@ btnEl.addEventListener('click', (event) => {
     event.preventDefault();
     const heightValue = Number(heightEl.value);
     const weightValue = Number(weightEl.value);
-    let bmi = weightValue / (heightValue / 100) ** 2;
+
+    const bmi = weightValue / (heightValue / 100) ** 2;
+    
     resultsEl.innerHTML = `BMI is ${bmi.toFixed(2)}`;
 })
 // Do calculations
