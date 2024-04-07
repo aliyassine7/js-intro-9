@@ -37,5 +37,5 @@ if(userName) {
     console.log('Page will be reloading in 5 seconds ...');
     setTimeout(() => location.reload(), 5000)
 } else {
-    console.log("Bye Bye! Name didn't provide")
+    console.log("Bye Bye! Name was not provided")
 }
