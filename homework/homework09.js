@@ -5,7 +5,7 @@ if the number is divisible by both 3 and 5. Otherwise, it will return the number
 */
 
 const fizzBuzz1 = num => {
-    
+
 }
 
 console.log(fizzBuzz1(0)); // 		-> "FizzBuzz"
@@ -24,6 +24,10 @@ and returns and array consist of numbers starting from 1 to given number. Howeve
 it will return "Fizz" for the numbers divided by 3, "Buzz" for the numbers divided by 5, 
 and "FizzBuzz" for the numbers divided both by 3 and 5.
 */
+
+const fizzBuzz2 = num => {
+    
+}
 
 console.log(fizzBuzz2(3)); // 		-> [ 1, 2, 'Fizz' ]
 console.log(fizzBuzz2(5)); // 		-> [ 1, 2, 'Fizz', 4, 'Buzz' ]
