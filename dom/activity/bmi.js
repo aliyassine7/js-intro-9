@@ -14,9 +14,9 @@ const resultsEl = document.querySelector('#results');
 // Get values
 // Attach an event
 btnEl.addEventListener('click', (event) => {
+    event.preventDefault();
     const heightValue = Number(heightEl.value);
     const weightValue = Number(weightEl.value);
-    event.preventDefault();
     let bmi = weightValue / (heightValue / 100) ** 2;
     resultsEl.innerHTML = `BMI is ${bmi.toFixed(2)}`;
 })
