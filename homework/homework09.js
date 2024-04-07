@@ -4,23 +4,21 @@ the given number is divisible by 3, "Buzz" if the number is divisible by 5, and 
 if the number is divisible by both 3 and 5. Otherwise, it will return the number itself.
 */
 
-const fizzBuzz1 = num => {
+const fizzBuzz1 = num => num % 3 === 0 && num % 5 === 0 ? `FizzBuzz` : num % 3 === 0 ? `Fizz` : num % 5 === 0 ? `Buzz` : num;
 
-}
-
-console.log(fizzBuzz1(0)); // 		-> "FizzBuzz"
-console.log(fizzBuzz1(1)); // 		-> 1
-console.log(fizzBuzz1(3)); // 		-> "Fizz"
-console.log(fizzBuzz1(5)); // 		-> "Buzz"
-console.log(fizzBuzz1(30)); // 	    -> "FizzBuzz"
-console.log(fizzBuzz1(10)); // 	    -> "Buzz"
-console.log(fizzBuzz1(15)); // 	    -> "FizzBuzz"
-console.log(fizzBuzz1(-15)); //	    -> "FizzBuzz"
+console.log(fizzBuzz1(0)); //  "FizzBuzz"
+console.log(fizzBuzz1(1)); // 	1
+console.log(fizzBuzz1(3)); // 	"Fizz"
+console.log(fizzBuzz1(5)); // 	"Buzz"
+console.log(fizzBuzz1(30)); // 	"FizzBuzz"
+console.log(fizzBuzz1(10)); // 	"Buzz"
+console.log(fizzBuzz1(15)); // 	"FizzBuzz"
+console.log(fizzBuzz1(-15)); //	"FizzBuzz"
 
 
 /* Task 2
-Write a function named fizzBuzz2() which takes a number argument 
-and returns and array consist of numbers starting from 1 to given number. However, 
+Write a function named fizzBuzz2() which takes a number argument and returns 
+an array that consists of numbers starting from 1 to given number. However, 
 it will return "Fizz" for the numbers divided by 3, "Buzz" for the numbers divided by 5, 
 and "FizzBuzz" for the numbers divided both by 3 and 5.
 */
@@ -29,11 +27,11 @@ const fizzBuzz2 = num => {
     
 }
 
-console.log(fizzBuzz2(3)); // 		-> [ 1, 2, 'Fizz' ]
-console.log(fizzBuzz2(5)); // 		-> [ 1, 2, 'Fizz', 4, 'Buzz' ]
-console.log(fizzBuzz2(10)); // 	    -> [ 1​, 2​, 'Fizz'​, 4​, 'Buzz'​, 'Fizz'​, 7, 8​, 'Fizz'​, 'Buzz' ]​
-console.log(fizzBuzz2(15)); // 	    -> [ 1​, 2​, 'Fizz'​, 4​, 'Buzz'​, 'Fizz'​, 7, 8​, 'Fizz'​, 'Buzz', 11, 'Fizz'. 13, 14,  'FizzBuzz' ]​
-console.log(fizzBuzz2(2)); // 		-> [ 1, 2 ]
+console.log(fizzBuzz2(3)); //  [ 1, 2, 'Fizz' ]
+console.log(fizzBuzz2(5)); //  [ 1, 2, 'Fizz', 4, 'Buzz' ]
+console.log(fizzBuzz2(10)); // [ 1​, 2​, 'Fizz'​, 4​, 'Buzz'​, 'Fizz'​, 7, 8​, 'Fizz'​, 'Buzz' ]​
+console.log(fizzBuzz2(15)); // [ 1​, 2​, 'Fizz'​, 4​, 'Buzz'​, 'Fizz'​, 7, 8​, 'Fizz'​, 'Buzz', 11, 'Fizz'. 13, 14,  'FizzBuzz' ]​
+console.log(fizzBuzz2(2)); //  [ 1, 2 ]
 
 
 /* Task 3
