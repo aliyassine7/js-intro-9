@@ -24,7 +24,11 @@ and "FizzBuzz" for the numbers divided both by 3 and 5.
 */
 
 const fizzBuzz2 = num => {
-    
+    let result = [];
+    for(let i = 0; i <= num.length; i++) {
+        if()
+    }
+    return result;
 }
 
 console.log(fizzBuzz2(3)); //  [ 1, 2, 'Fizz' ]
@@ -40,7 +44,7 @@ argument and returns sum of the all numbers appears in the string.
 */
 
 console.log(findSumNumbers("abc$")); // -> 0
-console.log(findSumNumbers("a1b4c  6#")); // -> 11
+console.log(findSumNumbers("a1b4c 6#")); // -> 11
 console.log(findSumNumbers("ab110c045d")); // -> 155
 console.log(findSumNumbers("525")); // -> 525
 console.log(findSumNumbers("3 for 10 dollars")); // -> 13
@@ -51,7 +55,7 @@ argument and returns the biggest number appears in the string.
 */
 
 console.log(findBiggestNumber("abc$")); // -> 0
-console.log(findBiggestNumber("a1b4c  6#")); // -> 6
+console.log(findBiggestNumber("a1b4c 6#")); // -> 6
 console.log(findBiggestNumber("ab110c045d")); // -> 110
 console.log(findBiggestNumber("525")); // -> 525
 console.log(findBiggestNumber("3 for 10 dollars")); // -> 10
