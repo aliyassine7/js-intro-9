@@ -25,8 +25,8 @@ and "FizzBuzz" for the numbers divided both by 3 and 5.
 
 const fizzBuzz2 = num => {
     let result = [];
-    for(let i = 0; i <= num.length; i++) {
-        if()
+    for(let i = 1; i <= num; i++) {
+        if(num[i] % 3 === 0 && num[i] % 5 === 0) result[i].push('FizzBuzz');
     }
     return result;
 }
