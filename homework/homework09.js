@@ -5,6 +5,7 @@ if the number is divisible by both 3 and 5. Otherwise, it will return the number
 */
 
 const fizzBuzz1 = num => num % 3 === 0 && num % 5 === 0 ? `FizzBuzz` : num % 3 === 0 ? `Fizz` : num % 5 === 0 ? `Buzz` : num;
+// const fizzBuzz1 = num => (num % 3 === 0 ? 'Fizz' : '') + (num % 5 === 0 ? 'Buzz' : '') || num;
 
 console.log(fizzBuzz1(0)); //  "FizzBuzz"
 console.log(fizzBuzz1(1)); // 	1
@@ -22,14 +23,16 @@ an array that consists of numbers starting from 1 to given number. However,
 it will return "Fizz" for the numbers divided by 3, "Buzz" for the numbers divided by 5, 
 and "FizzBuzz" for the numbers divided both by 3 and 5.
 */
-
+// const fizzBuzz2 = (num) =>  Array.from({ length: num }, (_, i) => ((i + 1) % 3 === 0 ? 'Fizz' : '') + ((i + 1) % 5 === 0 ? 'Buzz' : '') || (i + 1));
 const fizzBuzz2 = num => {
     let result = [];
     for (let i = 1; i <= num; i++) {
-        if (i % 3 === 0 && i % 5 === 0) result.push('FizzBuzz');
-        else if (i % 3 === 0) result.push('Fizz');
-        else if (i % 5 === 0) result.push('Buzz');
-        else result.push(i);
+        result.push((i % 3 === 0 ? 'Fizz' : '') + (i % 5 === 0 ? 'Buzz' : '') || i)
+
+        // if (i % 3 === 0 && i % 5 === 0) result.push('FizzBuzz');
+        // else if (i % 3 === 0) result.push('Fizz');
+        // else if (i % 5 === 0) result.push('Buzz');
+        // else result.push(i);
     }
     return result;
 }
