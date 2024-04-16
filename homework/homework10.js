@@ -54,7 +54,6 @@ const calculateTotalPrice2 = obj => {
         pineapple: 5.25
     }
 
-
     let totalPrice = 0;
     let appleCount = 0;
     let mangoCount = 0;
