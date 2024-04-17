@@ -73,7 +73,7 @@ const calculateTotalPrice2 = (order) => {
                 else total += price;
             }
         }
-        
+
         else total += price * amount;
     }
     return total.toFixed(2);
@@ -93,11 +93,16 @@ Note: Function should return empty string if the number argument
 is greater than the count of the words in the given string.
 */
 
-const nthWord = (str, num) => {
-    const words = str.split(' ');
+// const nthWord = (str, num) => {
+//     const words = str.split(' ');
 
-    if (num >= 1 && num <= words.length) return words[num - 1];
-    else return '';
+//     if (num >= 1 && num <= words.length) return words[num - 1];
+//     else return '';
+// }
+
+const nthWord = (str, num) => {
+    str = str.split(' ');
+    return num > str.length ? '' : str[num - 1];
 }
 
 console.log(nthWord("I like programming languages", 2)); // "like"
