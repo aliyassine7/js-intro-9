@@ -19,7 +19,7 @@ const calculateTotalPrice1 = obj => {
 
     let total = 0;
 
-    for(const amount in obj) {
+    for (const amount in obj) {
         total += menu[amount] * obj[amount];
     }
     return total;
@@ -28,7 +28,7 @@ const calculateTotalPrice1 = obj => {
 console.log(calculateTotalPrice1({ apple: 3, mango: 1 })); // 10.99
 console.log(calculateTotalPrice1({ apple: 2, pineapple: 1, orange: 3 })); // 19.12
 console.log(calculateTotalPrice1({ apple: 0, mango: 0, orange: 0 })); // 0
-console.log(calculateTotalPrice1({ apple: 1, pineapple: 1, orange: 0, mango:1 })); // 12.24
+console.log(calculateTotalPrice1({ apple: 1, pineapple: 1, orange: 0, mango: 1 })); // 12.24
 
 
 /* Task 2
@@ -46,44 +46,43 @@ There will be %50 discount for every second Apple​
 There will be 1 free Mango if customer gets 3. So, fourth one is free.
 */
 
-const calculateTotalPrice2 = obj => {
+const calculateTotalPrice2 = (order) => {
+    let total = 0;
+
     const menu = {
-        apple: 2.00,
+        apple: 2.0,
         orange: 3.29,
         mango: 4.99,
-        pineapple: 5.25
-    }
+        pineapple: 5.25,
+    };
 
-    let totalPrice = 0;
-    let appleCount = 0;
-    let mangoCount = 0;
+    for (const item in order) {
+        let price = menu[item];
+        let amount = order[item];
 
-    for (const item in obj) {
-        const itemName = item.toLowerCase();
-        if (itemName === 'apple') {
-            totalPrice += obj[item] * menu[itemName];
-            appleCount += obj[item];
-            // Apply discount for every second apple
-            if (appleCount % 2 === 0) {
-                totalPrice -= menu[itemName];
+        if (item === 'apple') {
+            for (let i = 1; i <= amount; i++) {
+                if (i % 2 === 0) total += (price / 2);
+                else total += price;
             }
-        } else if (itemName === 'mango') {
-            totalPrice += obj[item] * menu[itemName];
-            mangoCount += obj[item];
-            // Apply free mango for every set of 3 mangoes
-            totalPrice -= Math.floor(mangoCount / 3) * menu[itemName];
-        } else {
-            totalPrice += obj[item] * menu[itemName];
         }
+
+        else if (item === 'mango') {
+            for (let i = 1; i <= amount; i++) {
+                if (i % 4 === 0) total += 0;
+                else total += price;
+            }
+        }
+        
+        else total += price * amount;
     }
+    return total.toFixed(2);
+};
 
-    return totalPrice.toFixed(2); // Return total price rounded to 2 decimal places
-}
-
-console.log(calculateTotalPrice2({ Apple: 3, Mango: 5 })); // 24.96
-console.log(calculateTotalPrice2({ Apple: 4, Mango: 8, Orange: 3 })); // 45.81
-console.log(calculateTotalPrice2({ Apple: 0, Pineapple: 0, Orange: 0 })); //  0
-console.log(calculateTotalPrice2({ Apple: 4, Pineapple: 1, Orange: 1, Mango:3 })); // 29.51
+console.log(calculateTotalPrice2({ apple: 3, mango: 5 })) // 24.96
+console.log(calculateTotalPrice2({ apple: 4, mango: 8, orange: 3 })) // 45.81
+console.log(calculateTotalPrice2({ apple: 0, pineapple: 0, orange: 0 })) // 0.00
+console.log(calculateTotalPrice2({ apple: 4, pineapple: 1, orange: 1, mango: 3 })) // 29.51 
 
 
 /* Task 3
@@ -97,7 +96,7 @@ is greater than the count of the words in the given string.
 const nthWord = (str, num) => {
     const words = str.split(' ');
 
-    if(num >= 1 && num <= words.length) return words[num - 1];
+    if (num >= 1 && num <= words.length) return words[num - 1];
     else return '';
 }
 
@@ -125,7 +124,7 @@ is equal to the original number, which means 153 is an armstrong number.
 const isArmstrong = num => {
     const numbers = num.toString().split('');
 
-    return numbers.reduce((acc, curr) => acc + curr**numbers.length, 0) === num;
+    return numbers.reduce((acc, curr) => acc + curr ** numbers.length, 0) === num;
 }
 
 console.log(isArmstrong(153)); // 	true
@@ -182,13 +181,13 @@ number or the string length is not divisible by the given number.
 */
 
 const splitString = (str, num) => {
-    if(str.length % num !== 0) return '';
+    if (str.length % num !== 0) return '';
 
     let result = '';
 
-    for(let i = 0; i < str.length; i++) {
+    for (let i = 0; i < str.length; i++) {
         result += str[i];
-        if((i + 1) % num === 0) result += ' ';
+        if ((i + 1) % num === 0) result += ' ';
     }
 
     return result.trim();
