@@ -185,21 +185,31 @@ Note: Return empty string if the string shorter than splitting
 number or the string length is not divisible by the given number.
 */
 
-const splitString = (str, num) => {
-    if (str.length % num !== 0) return '';
+// const splitString = (str, num) => {
+//     if (str.length % num !== 0) return '';
 
-    let result = '';
+//     let result = '';
 
-    for (let i = 0; i < str.length; i++) {
-        result += str[i];
-        if ((i + 1) % num === 0) result += ' ';
-    }
+//     for (let i = 0; i < str.length; i++) {
+//         result += str[i];
+//         if ((i + 1) % num === 0) result += ' ';
+//     }
 
-    return result.trim();
-}
+//     return result.trim();
+// }
+
+// const splitString = (str, num) => {
+//     if(str.length > num && str.length % num === 0) {
+//         return str.slice(0, num) + ' ' + str.slice(num)
+//     }
+//     else return ''
+// }
+
+const splitString = (str, num) => str.length > num && str.length % num === 0 ? str.slice(0, num) + ' ' + str.slice(num) : '';
 
 console.log(splitString("JavaScript", 5)); // "JavaS cript"
 console.log(splitString("Java", 2)); // "Ja va"
+console.log(splitString("Javava", 2)); // "Ja va"
 console.log(splitString("Automation", 3)); // ""
 console.log(splitString("Hello", 6)); // ""
 console.log(splitString("12", 1)); // "1 2"
