@@ -146,6 +146,16 @@ and returns it back reversed without converting it to a String.
 Note: Do not convert number to string to complete the task.
 */
 
+// const reverseNumber = num => {
+//     let reversed = 0;
+
+//     for(let i = num; i > 0; i = Math.floor(i / 10)) {
+//         reversed = (reversed * 10) + (i % 10);
+//     }
+
+//     return reversed;
+// }
+
 const reverseNumber = num => {
     let reversed = 0;
     while (num !== 0) {
