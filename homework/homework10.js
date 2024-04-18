@@ -9,7 +9,7 @@ total price of the given items based on the price list below.
 1 Pineapple $5.25
 */
 
-const calculateTotalPrice1 = obj => {
+const calculateTotalPrice1 = order => {
     const menu = {
         apple: 2.00,
         orange: 3.29,
@@ -19,8 +19,8 @@ const calculateTotalPrice1 = obj => {
 
     let total = 0;
 
-    for (const amount in obj) {
-        total += menu[amount] * obj[amount];
+    for (const amount in order) {
+        total += menu[amount] * order[amount];
     }
     return total;
 }
@@ -46,38 +46,61 @@ There will be %50 discount for every second Apple​
 There will be 1 free Mango if customer gets 3. So, fourth one is free.
 */
 
-const calculateTotalPrice2 = order => {
-    let total = 0;
+// const calculateTotalPrice2 = order => {
+//     const menu = {
+//         apple: 2.0,
+//         orange: 3.29,
+//         mango: 4.99,
+//         pineapple: 5.25,
+//     };
+    
+//     let total = 0;
+    
+//     for (const item in order) {
+//         let price = menu[item];
+//         let amount = order[item];
 
+//         if (item === 'apple') {
+//             for (let i = 1; i <= amount; i++) {
+//                 if (i % 2 === 0) total += (price / 2);
+//                 else total += price;
+//             }
+//         }
+
+//         else if (item === 'mango') {
+//             for (let i = 1; i <= amount; i++) {
+//                 if (i % 4 === 0) total += 0;
+//                 else total += price;
+//             }
+//         }
+
+//         else total += price * amount;
+//     }
+//     return total.toFixed(2);
+// };
+
+const calculateTotalPrice2 = order => {
     const menu = {
         apple: 2.0,
         orange: 3.29,
         mango: 4.99,
         pineapple: 5.25,
     };
-
+    
+    let total = 0;
+    
     for (const item in order) {
-        let price = menu[item];
-        let amount = order[item];
+        let noSale = menu[item] * order[item];
+        let sale = 0;
 
-        if (item === 'apple') {
-            for (let i = 1; i <= amount; i++) {
-                if (i % 2 === 0) total += (price / 2);
-                else total += price;
-            }
-        }
+        if(item === 'apple') sale = Math.floor(order['apple'] / 2) * (menu['apple'] / 2);
+        if(item === 'mango') sale = Math.floor(order['mango'] / 4) * (menu['mango']);
 
-        else if (item === 'mango') {
-            for (let i = 1; i <= amount; i++) {
-                if (i % 4 === 0) total += 0;
-                else total += price;
-            }
-        }
-
-        else total += price * amount;
+        total += noSale - sale;
     }
+
     return total.toFixed(2);
-};
+}
 
 console.log(calculateTotalPrice2({ apple: 3, mango: 5 })) // 24.96
 console.log(calculateTotalPrice2({ apple: 4, mango: 8, orange: 3 })) // 45.81
