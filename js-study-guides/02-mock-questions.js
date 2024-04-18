@@ -115,7 +115,7 @@ NOTE: Vowel letters: a, e, i o, u, A, E, I, O, U
 // const startVowel = str => {
 //     // Convert the first character of the string to lowercase for comparison
 //     const firstChar = str.charAt(0).toLowerCase();
-    
+
 //     // Define an array of vowels
 //     const vowels = ['a', 'e', 'i', 'o', 'u'];
 
@@ -142,7 +142,7 @@ const averageOfEdges = (num1, num2, num3) => {
     let min = Math.min(num1, num2, num3);
     let max = Math.max(num1, num2, num3);
 
-    return (min + max) / 2; 
+    return (min + max) / 2;
 }
 
 console.log(averageOfEdges(0, 0, 0)); // 0 
@@ -188,9 +188,7 @@ string back with its first and last 4 characters swapped when invoked.
 NOTE: Return empty string if the given string does not have 8 or more characters. 
 */
 
-const swap4 = str => {
-    
-}
+const swap4 = str => str.trim().length < 8 ? '' : str.slice(-4) + str.slice(4, -4) + str.slice(0, 4);
 
 console.log(swap4("abc")); // ''
 console.log(swap4("JavaScript")); // "riptScJava"      
@@ -198,3 +196,214 @@ console.log(swap4("TechGlobal")); // "obalGlTech"
 console.log(swap4("")); // ''      
 console.log(swap4("      ")); // '' 
 console.log(swap4("Apple")); // ''
+
+
+/**
+ * Swap First and Last Words
+*/
+
+const swapFirstLastWord = str => {
+    str = str.trim();
+
+    if (str.includes(' ')) {
+        let firstWord = str.slice(0, str.indexOf(' '));
+        let middle = str.slice(str.indexOf(' '), str.lastIndexOf(' ') + 1);
+        let lastWord = str.slice(str.lastIndexOf(' ') + 1);
+
+        return lastWord + middle + firstWord
+    }
+
+    return "";
+}
+
+console.log(swapFirstLastWord("Hello World")); //     
+console.log(swapFirstLastWord("I like JavaScript")); //  
+console.log(swapFirstLastWord("foo bar foo bar")); //    
+console.log(swapFirstLastWord("")); //      
+console.log(swapFirstLastWord(" ")); //      
+console.log(swapFirstLastWord("Hello")); //     
+console.log(swapFirstLastWord("Hello   ")); // 
+
+
+/**
+ * Count Positive Numbers 
+*/
+
+const countPos = arr => arr.reduce((count, elem) => elem > 0 ? count + 1 : count, 0);
+
+console.log(countPos([-45, 0, 0, 34, 5, 67])); // 3 
+console.log(countPos([-23, -4, 0, 2, 5, 90, 123])); // 4 
+console.log(countPos([0, -1, -2, -3])); // 0
+
+
+/**
+ * Find Even Numbers
+*/
+const getEvens = (num1, num2) => {
+    let evens = [];
+
+    let min = Math.min(num1, num2);
+    let max = Math.max(num1, num2);
+
+    for(let i = min; i <= max; i++) {
+        if(i % 2 === 0) evens.push(i);
+    }
+
+    return evens;
+}
+console.log(getEvens(2, 7)); // [ 2, 4, 6 ]
+console.log(getEvens(17, 5)); // [ 6, 8, 10, 12, 14, 16 ]
+console.log(getEvens(4, 4)); // [ 4 ]
+console.log(getEvens(3, 3)); // []
+
+
+/**
+ * Find Numbers Divisible by 5
+*/
+const getMultipleOf5 = (num1, num2) => {
+
+}
+
+console.log(getMultipleOf5(3, 17)); // [ 5, 10, 15]
+console.log(getMultipleOf5(23, 5)); // [ 20, 15, 10, 5 ]
+console.log(getMultipleOf5(5, 5)); // [ 5 ]
+console.log(getMultipleOf5(2, 4)); // [ ]
+
+
+/**
+ * Count Negative Numbers 
+*/
+const countNeg = arr => {
+    return arr.reduce((count, elem) => elem < 0 ? count + 1 : count, 0)
+}
+
+console.log(countNeg([-45, 0, 0, 34, 5, 67])); // 1 
+console.log(countNeg([-23, -4, 0, 2, 5, 90, 123])); // 2 
+console.log(countNeg([0, -1, -2, -3])); // 3
+
+
+/**
+ * Count A
+*/
+
+
+/**
+ * Count Words
+*/
+
+
+/**
+ * Factorial 
+*/
+
+
+/**
+ * Count 3 or Less
+*/
+
+/**
+ * Remove Extra Spaces
+*/
+
+
+/**
+ * Middle Number
+*/
+
+
+/**
+ * First Duplicate Element
+*/
+
+
+/**
+ * Find All Duplicate Elements
+*/
+
+
+/**
+ * Count Vowels
+*/
+
+
+/**
+ * Reverse String Word
+*/
+
+
+/**
+ * Count Consonants
+*/
+
+
+
+
+/**
+ * Count Multiple Words 
+*/
+const countMultipleWords = arr => {
+
+}
+
+
+/**
+ * FizzBuzz
+*/
+
+
+/**
+ * Palindrome
+*/
+
+
+/**
+ * Prime Number
+*/
+
+
+/**
+ * Add Two Arrays
+*/
+
+
+/**
+ * No Elements With A
+*/
+
+
+/**
+ * No Elements Divisible by 3 and 5
+*/
+
+
+
+/**
+ * No Elements Equal 13
+*/
+
+
+
+/**
+ * Remove Duplicates
+ */
+
+
+/**
+ * No Digits 
+*/
+
+
+/**
+ * No Vowel
+*/
+
+
+
+/**
+ * Sum of Digits
+*/
+
+
+/**
+ * Array Factorial
+*/

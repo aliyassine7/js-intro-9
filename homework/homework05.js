@@ -315,25 +315,25 @@ NOTE: Be careful about the array sizes as they could be different.
 // }
 
 const add = (arr1, arr2) => {
-    //     const maxLength = Math.max(arr1.length, arr2.length);
-    //     const sum = [];
+//     //     const maxLength = Math.max(arr1.length, arr2.length);
+//     //     const sum = [];
 
-    //     for (let i = 0; i < maxLength; i++) {
-    //         const num1 = arr1[i] || 0; // If arr1[i] is undefined, use 0
-    //         const num2 = arr2[i] || 0; // If arr2[i] is undefined, use 0
-    //         sum.push(num1 + num2);
-    //     }
+//     //     for (let i = 0; i < maxLength; i++) {
+//     //         const num1 = arr1[i] || 0; // If arr1[i] is undefined, use 0
+//     //         const num2 = arr2[i] || 0; // If arr2[i] is undefined, use 0
+//     //         sum.push(num1 + num2);
+//     //     }
 
-    //     return sum;
+//     //     return sum;
 
     const shortArray = arr1.length < arr2.length ? arr1 : arr2;
     const longArray = arr1.length > arr2.length ? arr1 : arr2;
-    const arr3 = [];
+    const sum = [];
 
     for (let i = 0; i < shortArray.length; i++) {
-        arr3.push(arr1[i] + arr2[i]);
+        sum.push(arr1[i] + arr2[i]);
     }
-    return arr3.concat(longArray.slice(shortArray.length))
+    return sum.concat(longArray.slice(shortArray.length));
 }
 
 console.log(add([3, 0, 0, 7, 5, 10], [6, 3, 2])); // [9, 3, 2, 7, 5, 10]
