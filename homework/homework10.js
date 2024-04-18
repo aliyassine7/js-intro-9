@@ -53,9 +53,9 @@ There will be 1 free Mango if customer gets 3. So, fourth one is free.
 //         mango: 4.99,
 //         pineapple: 5.25,
 //     };
-    
+
 //     let total = 0;
-    
+
 //     for (const item in order) {
 //         let price = menu[item];
 //         let amount = order[item];
@@ -76,7 +76,24 @@ There will be 1 free Mango if customer gets 3. So, fourth one is free.
 
 //         else total += price * amount;
 //     }
-//     return total.toFixed(2);
+//     return total === 0 ? 0 : total.toFixed(2);
+// };
+
+// const calculateTotalPrice2 = (items) => {
+//     const prices = {
+//         Apple: 2.00,
+//         Orange: 3.29,
+//         Mango: 4.99,
+//         Pineapple: 5.25
+//     };
+
+//     let total = 0;
+//     total += (items.Apple ? Math.ceil(items.Apple / 2) * prices.Apple + Math.floor(items.Apple / 2) * prices.Apple * 0.5 : 0);
+//     total += (items.Mango ? Math.ceil(items.Mango * 3 / 4) * prices.Mango : 0);
+//     total += (items.Orange ? items.Orange * prices.Orange : 0);
+//     total += (items.Pineapple ? items.Pineapple * prices.Pineapple : 0);
+
+//     return total === 0 ? 0 : total.toFixed(2);
 // };
 
 const calculateTotalPrice2 = order => {
@@ -86,15 +103,14 @@ const calculateTotalPrice2 = order => {
         mango: 4.99,
         pineapple: 5.25,
     };
-    
+
     let total = 0;
-    
+
     for (const item in order) {
         let noSale = menu[item] * order[item];
         let sale = 0;
-
-        if(item === 'apple') sale = Math.floor(order['apple'] / 2) * (menu['apple'] / 2);
-        if(item === 'mango') sale = Math.floor(order['mango'] / 4) * (menu['mango']);
+        if (item === 'apple') sale = Math.floor(order['apple'] / 2) * (menu['apple'] / 2);
+        if (item === 'mango') sale = Math.floor(order['mango'] / 4) * (menu['mango']);
 
         total += noSale - sale;
     }
@@ -234,7 +250,7 @@ number or the string length is not divisible by the given number.
 //     if (str.length % num !== 0 || str.length < num) return '';
 
 //     const parts = [];
-    
+
 //     for (let i = 0; i < str.length; i += num) {
 //         parts.push(str.slice(i, i + num));
 //     }
