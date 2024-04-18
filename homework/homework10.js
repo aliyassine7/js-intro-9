@@ -99,12 +99,12 @@ const calculateTotalPrice2 = order => {
         total += noSale - sale;
     }
 
-    return total.toFixed(2);
+    return total === 0 ? 0 : total.toFixed(2);
 }
 
 console.log(calculateTotalPrice2({ apple: 3, mango: 5 })) // 24.96
 console.log(calculateTotalPrice2({ apple: 4, mango: 8, orange: 3 })) // 45.81
-console.log(calculateTotalPrice2({ apple: 0, pineapple: 0, orange: 0 })) // 0.00
+console.log(calculateTotalPrice2({ apple: 0, pineapple: 0, orange: 0 })) // 0
 console.log(calculateTotalPrice2({ apple: 4, pineapple: 1, orange: 1, mango: 3 })) // 29.51 
 
 
