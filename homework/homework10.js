@@ -193,10 +193,21 @@ number or the string length is not divisible by the given number.
 //     for (let i = 0; i < str.length; i++) {
 //         result += str[i];
 //         if ((i + 1) % num === 0) result += ' ';
-//     }
-
+// }
 //     return result.trim();
 // }
+
+// const splitString = (str, num) => {
+//     if (str.length % num !== 0 || str.length < num) return '';
+
+//     const parts = [];
+    
+//     for (let i = 0; i < str.length; i += num) {
+//         parts.push(str.slice(i, i + num));
+//     }
+
+//     return parts.join(' ');
+// };
 
 // const splitString = (str, num) => {
 //     if(str.length > num && str.length % num === 0) {
