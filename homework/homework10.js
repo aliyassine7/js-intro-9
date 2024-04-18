@@ -46,7 +46,7 @@ There will be %50 discount for every second Apple​
 There will be 1 free Mango if customer gets 3. So, fourth one is free.
 */
 
-const calculateTotalPrice2 = (order) => {
+const calculateTotalPrice2 = order => {
     let total = 0;
 
     const menu = {
