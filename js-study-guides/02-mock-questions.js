@@ -257,11 +257,19 @@ console.log(getEvens(4, 4)); // [ 4 ]
 console.log(getEvens(3, 3)); // []
 
 
-/**
- * Find Numbers Divisible by 5
+/* Find Numbers Divisible by 5
+Write a function named as getMultipleOf5() which takes 2 
+number arguments and returns all the numbers divisible by 5 
+as an array stored from first found match to last found match 
+when invoked.
+
+NOTE: Make your code dynamic that works for any numbers 
+and return empty array if there are no numbers divisible by 5 
+in the range of given 2 numbers. 
+Assume you will not be given negative numbers.
 */
 const getMultipleOf5 = (num1, num2) => {
-
+    
 }
 
 console.log(getMultipleOf5(3, 17)); // [ 5, 10, 15 ]
@@ -297,9 +305,28 @@ console.log(countNeg([0, -1, -2, -3])); // 3
 */
 
 
-/**
- * Count 3 or Less
+/* Count 3 or Less
+Write a function named as count3OrLess() which takes a string word as an argument and 
+returns the count of the words that has 3 characters or less when invoked.
 */
+const count3OrLess = str => {
+    let count = 0;
+
+    let words = str.trim().split(' ');
+    for (const word of words) {
+        if (word.length <= 3 && word.length > 0) count++;
+    }
+    return count;
+
+    // return str.trim().split(' ').reduce((count, elem) => elem <= 3 ? count + 1 : count, 0)
+}
+
+console.log(count3OrLess("Hello")); // 0
+console.log(count3OrLess("Hi John")); // 1
+console.log(count3OrLess("JavaScript is fun")); // 2
+console.log(count3OrLess("My name is John Doe")); // 3
+console.log(count3OrLess("")); // 0
+
 
 /**
  * Remove Extra Spaces
