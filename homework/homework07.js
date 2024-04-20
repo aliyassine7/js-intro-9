@@ -38,9 +38,7 @@ Write a function named noVowel() which takes a string argument and
 returns a new string with all vowels removed from the original string​.
 */
 
-const noVowel = str => {
-    return str.split('').filter(vowel => !('AEIOUaeiou'.includes(vowel))).join('');
-}
+const noVowel = str => str.split('').filter(vowel => !('AEIOUaeiou'.includes(vowel))).join('');
 
 console.log(noVowel("TechGlobal")); // "TchGlbl"
 console.log(noVowel("AEOxyz")); // "xyz"

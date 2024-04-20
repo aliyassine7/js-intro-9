@@ -219,10 +219,10 @@ const swapFirstLastWord = str => {
 console.log(swapFirstLastWord("Hello World")); //     
 console.log(swapFirstLastWord("I like JavaScript")); //  
 console.log(swapFirstLastWord("foo bar foo bar")); //    
-console.log(swapFirstLastWord("")); //      
-console.log(swapFirstLastWord(" ")); //      
-console.log(swapFirstLastWord("Hello")); //     
-console.log(swapFirstLastWord("Hello   ")); // 
+console.log(swapFirstLastWord("")); // ''   
+console.log(swapFirstLastWord(" ")); // ''    
+console.log(swapFirstLastWord("Hello")); // ''    
+console.log(swapFirstLastWord("Hello   ")); // ''
 
 
 /**
@@ -269,7 +269,17 @@ in the range of given 2 numbers.
 Assume you will not be given negative numbers.
 */
 const getMultipleOf5 = (num1, num2) => {
-    
+    let max = Math.max(num1, num2);
+    let min = Math.min(num1, num2);
+
+    let result = [];
+
+    for(let i = min; i <= max; i++) {
+        if(i % 5 === 0) result.push(i);
+    }
+    if(max === num1) result.reverse();
+
+    return result;
 }
 
 console.log(getMultipleOf5(3, 17)); // [ 5, 10, 15 ]
@@ -278,11 +288,20 @@ console.log(getMultipleOf5(5, 5)); // [5]
 console.log(getMultipleOf5(2, 4)); // []
 
 
-/**
- * Count Negative Numbers 
+/* Count Negative Numbers 
+Write a function named countNeg() which takes an array of numbers as an argument and 
+returns how many elements are negative when invoked.
 */
 const countNeg = arr => {
     return arr.reduce((count, elem) => elem < 0 ? count + 1 : count, 0)
+    
+    // let count = 0;
+
+    // for(const neg of arr) {
+    //     if(neg < 0) count++;
+    // }
+
+    // return count;
 }
 
 console.log(countNeg([-45, 0, 0, 34, 5, 67])); // 1 
@@ -290,19 +309,53 @@ console.log(countNeg([-23, -4, 0, 2, 5, 90, 123])); // 2
 console.log(countNeg([0, -1, -2, -3])); // 3
 
 
-/**
- * Count A
+/* Count A
+Write a function named countA() which takes a string argument and returns how many A or a 
+there are in the given string when invoked. 
+NOTE: Ignore case sensitivity. 
 */
+const countA = str => str.split('').filter(el => el.toLowerCase().includes('a')).length;
+
+console.log(countA("TechGlobal is a QA bootcamp")); // 4
+console.log(countA("QA stands for Quality Assurance")); // 5
+console.log(countA("Cypress")); // 0
 
 
-/**
- * Count Words
+/* Count Words
+Write a function named countWords() which takes a string argument 
+and returns the total count of words in the given string when invoked.
+
+NOTE: Be careful about the extra whitespaces before and after the string.
 */
+// const countWords = str => str.trim().split(' ').filter(el => el.length > 0).length;
+const countWords = str => str.trim().split(' ').length;
+
+console.log(countWords("   Javascript is fun   ")); // 3
+console.log(countWords("Cypress is an UI automation tool.   ")); // 6 
+console.log(countWords("1 2 3 4")); // 4
 
 
-/**
- * Factorial 
+/* Factorial 
+Write a function named as factorial() which takes a number as an argument 
+and returns the factorial of the number when invoked.
+
+NOTE: Mathematically, the factorial of a non-negative integer n is defined as:
+n! = n × (n-1) × (n-2) × ... × 2 × 1
+
+Assume you will not be given a negative number.
 */
+const factorial = num => {
+    let total = 1;
+    for (let i = num; i >= 1; i--) {
+        total *= i;
+    }
+    return total;
+}
+
+console.log(factorial(5)); // 120
+console.log(factorial(4)); // 24
+console.log(factorial(0)); // 1
+console.log(factorial(1)); // 1
 
 
 /* Count 3 or Less
@@ -317,8 +370,6 @@ const count3OrLess = str => {
         if (word.length <= 3 && word.length > 0) count++;
     }
     return count;
-
-    // return str.trim().split(' ').reduce((count, elem) => elem <= 3 ? count + 1 : count, 0)
 }
 
 console.log(count3OrLess("Hello")); // 0
@@ -328,109 +379,130 @@ console.log(count3OrLess("My name is John Doe")); // 3
 console.log(count3OrLess("")); // 0
 
 
-/**
- * Remove Extra Spaces
+/* Remove Extra Spaces
 */
 
 
-/**
- * Middle Number
+/* Middle Number
 */
 
 
-/**
- * First Duplicate Element
+/* First Duplicate Element
 */
 
 
-/**
- * Find All Duplicate Elements
+/* Find All Duplicate Elements
 */
 
 
-/**
- * Count Vowels
+/* Count Vowels
+Write a function named as countVowels() which takes a string word as an argument 
+and returns the count of the vowel letters when invoked.
+
+NOTE: Vowel letters are A,E, O, U, I, a, e, o, u, i
+*/
+const countVowels = str => {
+    // return str.trim().split('').reduce((count, elem) => 'AEIOUaeiou'.includes(elem) ? count + 1 : count, 0);
+
+    let count = 0;
+
+    for (const letter of str) {
+        if ('AEIOUaeiou'.includes(letter)) count++;
+    }
+    return count;
+}
+
+console.log(countVowels("Hello")); // 2
+console.log(countVowels("Hello World")); // 3
+console.log(countVowels("JavaScript is fun")); // 5
+console.log(countVowels("")); // 0
+
+
+/* Reverse String Word
 */
 
 
-/**
- * Reverse String Word
-*/
-
-
-/**
- * Count Consonants
+/* Count Consonants
 */
 
 
 
 
-/**
- * Count Multiple Words 
+/* Count Multiple Words 
 */
 const countMultipleWords = arr => {
 
 }
 
 
-/**
- * FizzBuzz
+/* FizzBuzz
 */
 
 
-/**
- * Palindrome
+/* Palindrome
 */
 
 
-/**
- * Prime Number
+/* Prime Number
 */
 
 
-/**
- * Add Two Arrays
+/* Add Two Arrays
 */
 
 
-/**
- * No Elements With A
+/* No Elements With A
 */
 
 
-/**
- * No Elements Divisible by 3 and 5
+/* No Elements Divisible by 3 and 5
 */
 
 
 
-/**
- * No Elements Equal 13
+/* No Elements Equal 13
 */
 
 
 
-/**
- * Remove Duplicates
- */
+/* Remove Duplicates
+Write a function named removeDuplicates() which takes an array 
+argument and returns a new array with all the duplicates removed.
+*/
+const removeDuplicates = arr => arr.reduce((newArray, el) => !(newArray.includes(el)) ? newArray.concat(el) : newArray, []);
+
+// const removeDuplicates = arr => arr.filter((el, i) => arr.indexOf(el) === i);
+
+console.log(removeDuplicates([10, 20, 35, 20, 35, 60, 70, 60])); // [10, 20, 35, 60, 70]
+console.log(removeDuplicates([1, 2, 5, 2, 3])); // [1, 2, 5, 3]
+console.log(removeDuplicates([0, -1, -2, -2, -1])); // [0, -1, -2]
+console.log(removeDuplicates(["abc", "xyz", "123", "ab", "abc", "ABC"])); // ["abc", "xyz", "123", "ab", "ABC"]
+console.log(removeDuplicates(["1", "2", "3", "2", "3"])); // ["1", "2", "3"]
 
 
-/**
- * No Digits 
+/* No Digits 
 */
 
 
-/**
- * No Vowel
+/* No Vowel
+Write a function named noVowel() which takes a string argument and 
+returns a new string with all vowels removed from the original string​.
+*/
+const noVowel = str => {
+    return str.split('').filter(elem => !'aeiouAEIOU'.includes(elem)).join('');
+}
+
+console.log(noVowel("TechGlobal")); // "TchGlbl"
+console.log(noVowel("AEOxyz")); // "xyz"
+console.log(noVowel("Javascript")); // "Jvscrpt"
+console.log(noVowel("")); // ""
+console.log(noVowel("125$")); // "125$"
+
+
+
+/* Sum of Digits
 */
 
 
-
-/**
- * Sum of Digits
-*/
-
-
-/**
- * Array Factorial
+/* Array Factorial
 */
