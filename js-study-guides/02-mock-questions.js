@@ -414,6 +414,7 @@ console.log(middleInt(5, 3, 5)); // 5
 console.log(middleInt(1, 1, 1)); // 1
 console.log(middleInt(-1, 25, 10)); // 10
 
+
 /* First Duplicate Element
 Write a function named as firstDuplicate() which takes an 
 array argument and returns the first duplicated number in the 
@@ -545,7 +546,32 @@ NOTE: The smallest prime number is 2 and there is no negative prime numbers.
 
 
 /* Add Two Arrays
+Write a function named add() which takes two array of numbers as argument 
+and returns a new array with sum of given arrays elements.
+
+NOTE: Be careful about the array sizes as they could be different.
 */
+const add = (arr1, arr2) => {
+    const shortArray = arr1.length < arr2.length ? arr1 : arr2;
+    const longArray = arr1.length > arr2.length ? arr1 : arr2;
+    const sum = [];
+
+    for (let i = 0; i < shortArray.length; i++) {
+        sum.push(arr1[i] + arr2[i]);
+    }
+    return sum.concat(longArray.slice(shortArray.length));
+}
+// const add = (arr1, arr2) => {
+//     [arr1 , arr2] = arr1.length > arr2.length ? [arr1, arr2] : [arr2, arr1]
+//     for (let i = 0; i < arr1.length; i++) {
+//         if (i < arr2.length) arr1[i] += arr2[i]
+//     }
+//     return arr1
+// }
+
+console.log(add([3, 0, 0, 7, 5, 10], [6, 3, 2])); // [9, 3, 2, 7, 5, 10]
+console.log(add([10, 3, 6, 3, 2], [6, 8, 3, 0, 0, 7, 5, 10, 34])); // [16, 11, 9,  3, 2, 7, 5, 10, 34]​
+console.log(add([-5, 6, -3, 11], [5, -6, 3, -11])); // [0, 0, 0, 0]
 
 
 /* No Elements With A
@@ -594,7 +620,6 @@ console.log(noVowel("AEOxyz")); // "xyz"
 console.log(noVowel("Javascript")); // "Jvscrpt"
 console.log(noVowel("")); // ""
 console.log(noVowel("125$")); // "125$"
-
 
 
 /* Sum of Digits
