@@ -353,7 +353,6 @@ function firstDuplicate(arr) {
 }
 
 console.log(firstDuplicate([3, 7, 10, 0, 3, 10])); // 3
-
 console.log(firstDuplicate([5, 7, 7, 0, 5, 10])); // 5
 console.log(firstDuplicate([5, '5', 3, 7, 4])); // -1
 console.log(firstDuplicate([123, 'abc', '123', 3, 'abc'])); // 'abc'

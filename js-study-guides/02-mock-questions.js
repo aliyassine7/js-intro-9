@@ -380,18 +380,75 @@ console.log(count3OrLess("")); // 0
 
 
 /* Remove Extra Spaces
+Write a function named as removeExtraSpaces() which takes a string word as an argument 
+and returns the string back with all extra spaces removed when invoked.
 */
+const removeExtraSpaces = str => str.trim().split(' ').filter(word => word !== '').join(' ');
+// const removeExtraSpaces = str => str.trim().split(' ').filter(word => word !== '').join(' ').split('\t').join('')
+
+console.log(removeExtraSpaces("Hello")); //	"Hello" 
+console.log(removeExtraSpaces("      Hello    World     ")); // "Hello World" 
+console.log(removeExtraSpaces("     JavaScript is        fun")); // "JavaScript is fun”
+console.log(removeExtraSpaces("")); // ''
 
 
 /* Middle Number
+Write a function named middleInt() which takes 
+three number arguments and return the middle number. 
 */
+// const middleInt = (num1, num2, num3) => {
+//     const sortedNums = [num1, num2, num3].sort((a, b) => a - b);
+//     return sortedNums[1];
+// }
 
+const middleInt = (num1, num2, num3) => {
+    let smallestNum = Math.min(num1, num2, num3);
+    let largestNum = Math.max(num1, num2, num3);
+
+    return num1 + num2 + num3 - smallestNum - largestNum;
+}
+
+console.log(middleInt(1, 2, 2)); // 2
+console.log(middleInt(5, 5, 8)); // 5
+console.log(middleInt(5, 3, 5)); // 5
+console.log(middleInt(1, 1, 1)); // 1
+console.log(middleInt(-1, 25, 10)); // 10
 
 /* First Duplicate Element
+Write a function named as firstDuplicate() which takes an 
+array argument and returns the first duplicated number in the 
+array when invoked.
+
+NOTE: Make your code dynamic that works for any array and 
+return -1 if there are no duplicates in the array. For two 
+elements to be considered as duplicated, value and data types 
+of the elements must be same.
 */
+const firstDuplicate = arr =>  {
+    for(let elem of arr) {
+      if(arr.indexOf(elem) !== arr.lastIndexOf(elem)) return elem
+    }
+    return -1;
+}
+
+console.log(firstDuplicate([3, 7, 10, 0, 3, 10])); // 3
+console.log(firstDuplicate([5, 7, 7, 0, 5, 10])); // 5
+console.log(firstDuplicate([5, '5', 3, 7, 4])); // -1
+console.log(firstDuplicate([123, 'abc', '123', 3, 'abc'])); // 'abc'
+console.log(firstDuplicate([1, 2, 3])); // -1
+console.log(firstDuplicate(['foo', 'abc', '123', 'bar'])); // -1
+
 
 
 /* Find All Duplicate Elements
+Write a function named as getDuplicates() which takes an 
+array argument and returns all the duplicated elements in the 
+array when invoked.
+
+NOTE: Make your code dynamic that works for any array and 
+return empty array if there are no duplicates in the array. For 
+two elements to be considered as duplicated, value and data 
+types of the elements must be same.
 */
 
 
@@ -419,16 +476,30 @@ console.log(countVowels("")); // 0
 
 
 /* Reverse String Word
+Write a function named as reverseStringWords() which takes a string 
+as an argument and returns string back with each word separately 
+reversed when invoked.
+
+NOTE: Make your code dynamic that works for any string. Make sure you 
+consider extra spaces before and after words in the given string.
 */
 
 
 /* Count Consonants
+Write a function named as countConsonants() which takes a string word as an argument 
+and returns the count of the consonant letters when invoked.
+
+NOTE: A letter that is not vowel is considered as a consonant letter.
 */
 
 
 
 
 /* Count Multiple Words 
+Write a function named as countMultipleWords() which takes an array as an argument 
+and returns the count of the elements that has multiple words when invoked.
+
+NOTE: Be careful about the extra whitespaces before and after the array element.
 */
 const countMultipleWords = arr => {
 
@@ -436,14 +507,40 @@ const countMultipleWords = arr => {
 
 
 /* FizzBuzz
+Write a function named as fizzBuzz() which takes 2 number arguments and 
+returns a string composed with below requirements when invoked.
+You need to find all the numbers within the range of given 2 numbers (both inclusive) 
+and store them in a string from smallest to greatest number with a ' | ' separator for each number.
+You will need to convert numbers divisible by 3 to 'Fizz'
+You will need to convert numbers divisible by 5 to 'Buzz'
+You will need to convert numbers divisible by both 3 and 5 to 'FizzBuzz’
+The rest will stay the same.
+NOTE: Make your code dynamic that works for any numbers.
+Assume you will not be given negative numbers.
 */
 
 
 /* Palindrome
+Write a function named as isPalindrome() which takes a string word as an argument 
+and returns true if the word is palindrome or returns false otherwise when invoked.
+
+NOTE: Palindrome: It is a word that is read the same backward as forward
+Examples: kayak, civic, madam
+
+NOTE: your function should ignore case sensitivity
 */
 
 
+
 /* Prime Number
+Write a function named as isPrime() which takes a number as an argument 
+and returns true if the number is prime or returns false otherwise when invoked.
+
+NOTE: Mathematically, Prime number is a number that can be divided only by itself and 1. 
+It cannot be divided by any other number. The smallest prime number is 2 and 2 is the only even prime number.
+
+Examples: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31…
+NOTE: The smallest prime number is 2 and there is no negative prime numbers.
 */
 
 
