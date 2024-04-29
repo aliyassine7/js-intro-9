@@ -533,6 +533,33 @@ NOTE: your function should ignore case sensitivity
 
 
 
+
+const add1 = (arr1, arr2) => {
+    let smallArray = arr1.length < arr2.length ? arr1 : arr2;
+    let largeArray = arr2.length > arr1.length ? arr2 : arr1;
+  
+    const result = [];
+  
+    for(let i = 0; i < arr2.length; i++) {
+        result.push(arr1[i] + arr2[i]);
+    }
+    return result;
+  }
+  
+  console.log(add1([3, 0, 0, 7, 5, 10], [6, 3, 2])) //	       -> [9, 3, 2, 7, 5, 10])
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Prime Number
 Write a function named as isPrime() which takes a number as an argument 
 and returns true if the number is prime or returns false otherwise when invoked.
