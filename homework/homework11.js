@@ -94,11 +94,11 @@ const isAnagram = (str1, str2) => {
   return true;
 }
 
-console.log(isAnagram("Apple", "Peach")  )
-console.log(isAnagram("listen", "silent")  )
-console.log(isAnagram("astronomer", "moon starer")  )
-console.log(isAnagram("CINEMA", "iceman")  )
-console.log(isAnagram("123", "1234") )
+console.log(isAnagram("Apple", "Peach"))
+console.log(isAnagram("listen", "silent"))
+console.log(isAnagram("astronomer", "moon starer"))
+console.log(isAnagram("CINEMA", "iceman"))
+console.log(isAnagram("123", "1234"))
 
 console.log("\n============Task-6============\n");
 
@@ -107,21 +107,21 @@ const count = (arr, bool) => {
   else return arr.reduce((count, elem) => elem % 2 !== 0 ? count + 1 : count, 0)
 }
 
-console.log(count([1, 5, 10], true) )
-console.log(count([3, 7, 2, 5, 10], false) )
-console.log(count([-1, 1, -2, 2], true) )
-console.log(count([0, -1, 15, 1], false) )
-console.log(count([1, 2, 3, 4, -4], true) )
+console.log(count([1, 5, 10], true))
+console.log(count([3, 7, 2, 5, 10], false))
+console.log(count([-1, 1, -2, 2], true))
+console.log(count([0, -1, 15, 1], false))
+console.log(count([1, 2, 3, 4, -4], true))
 
 console.log("\n============Task-7============\n");
 
 const sumDigitsDouble = str => (str.split('').reduce((sum, elem) => elem >= '0' && elem <= '9' ? sum + Number(elem) : sum, 0)) * 2 || -1;
 
-console.log(sumDigitsDouble("Javascript") )
-console.log(sumDigitsDouble("23abc45")  )
-console.log(sumDigitsDouble("Hi-23") )
-console.log(sumDigitsDouble("ab12") )
-console.log(sumDigitsDouble("n0numh3r3") )
+console.log(sumDigitsDouble("Javascript"))
+console.log(sumDigitsDouble("23abc45"))
+console.log(sumDigitsDouble("Hi-23"))
+console.log(sumDigitsDouble("ab12"))
+console.log(sumDigitsDouble("n0numh3r3"))
 
 console.log("\n============Task-8============\n");
 
@@ -139,8 +139,8 @@ const countOccurrence = (str1, str2) => {
   return result < 1 ? 0 : result;
 }
 
-console.log(countOccurrence("Javascript", "Java") )
-console.log(countOccurrence("Hello", "World") )
-console.log(countOccurrence("Can I can a can", "anc")  )
-console.log(countOccurrence("Hello", "l")  )
-console.log(countOccurrence("IT conversations", "IT")  )
+console.log(countOccurrence("Javascript", "Java"))
+console.log(countOccurrence("Hello", "World"))
+console.log(countOccurrence("Can I can a can", "anc"))
+console.log(countOccurrence("Hello", "l"))
+console.log(countOccurrence("IT conversations", "IT"))
