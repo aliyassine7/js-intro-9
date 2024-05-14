@@ -73,9 +73,7 @@ NOTE: If the string is empty or consists of spaces only, then return empty strin
 NOTE: If the string consists of multiple words having the longest word, then return the first occurrence.
 */
 
-const findLongestWord = str => {
-
-}
+const findLongestWord = str => str.trim().split(' ').reduce((currWord, longestWord) => currWord.length > longestWord.length ? currWord : longestWord, '')
 
 console.log(findLongestWord("The quick brown fox jumped over the lazy dog")); // "jumped"
 console.log(findLongestWord("This is a sample string for testing")); // "testing" 
