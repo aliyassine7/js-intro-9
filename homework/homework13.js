@@ -5,23 +5,24 @@ returns an object with the count of vowels and consonants.
 
 const countVC = (str) => {
   str = str.toLowerCase();
-  let counts = { vowels: 0, consonants: 0 };
-  for (let char of str) {
+
+  let countsObj = { vowels: 0, consonants: 0 };
+
+  for (const char of str) {
     if (char >= "a" && char <= "z") {
-      if ("aeiou".includes(char)) counts.vowels++;
-      else counts.consonants++;
+      if ("aeiou".includes(char)) countsObj.vowels++;
+      else countsObj.consonants++;
     }
   }
-  return counts;
+
+  return countsObj;
 };
 
-
-
-console.log(countVC("Hello")); // {vowels: 2, consonants: 3}
-console.log(countVC("Programming")); // {vowels: 3, consonants: 8}
-console.log(countVC("123AbC")); // {vowels: 1, consonants: 2}
-console.log(countVC("123!@#xyz")); // {vowels: 0, consonants: 3}
-console.log(countVC("")); // {vowels: 0, consonants: 0}
+console.log(countVC("Hello"));
+console.log(countVC("Programming"));
+console.log(countVC("123AbC"));
+console.log(countVC("123!@#xyz"));
+console.log(countVC(""));
 
 /* Task-2
 Write a function named countChars() which takes a string argument 
@@ -32,20 +33,29 @@ Also spaces do not count towards any category
 */
 
 const countChars = (str) => {
+
   str = str.toLowerCase();
-  let result = { letters: 0, numbers: 0, specials: 0 };
+
+  const chars = {letters: 0, numbers: 0, specials: 0} 
+
   for (const char of str) {
-    if (char === " ") continue;
-    if (char >= "a" && char <= "z") result.letters++;
-    else if (char >= "0" && char <= "9") result.numbers++;
-    else result.specials++;
+    if(char === ' ') continue;
+    
+    if(char >= 'a' && char <= 'z') {
+      chars.letters++;
+    }
+    else if(char >= '0' && char <= '9') {
+      chars.numbers++;
+    }
+    else chars.specials++;
   }
 
-  for (let elem in result) {
-    if (result[elem] === 0) delete result[elem];
+  // If the count of a category is 0 then it should not be in the object.
+  for (const char in chars) {
+    if (chars[char] === 0) delete chars[char]
   }
 
-  return result;
+  return chars;
 };
 
 console.log(countChars("Hello")); // {letters: 5}
@@ -54,6 +64,7 @@ console.log(countChars("123AbC!@#")); // {letters: 3, numbers: 3, specials: 3}
 console.log(countChars("0987654321")); // {numbers: 10}
 console.log(countChars("     ")); // {}
 console.log(countChars("")); // {}
+
 
 /* Task-3
 Write a function named maxOccurrences() which takes a string argument and returns 
@@ -148,15 +159,14 @@ const romanToInt = (str) => {
     M: 1000,
   };
 
-  str = str.split('');
-  let result = 0
+  str = str.split("");
+  let result = 0;
   str.forEach((elem, index) => {
-    if (numerals[elem] < numerals[str[index+1]]) result -= numerals[elem] 
-    else result += numerals[elem]
+    if (numerals[elem] < numerals[str[index + 1]]) result -= numerals[elem];
+    else result += numerals[elem];
   });
-  return result
+  return result;
 };
-
 
 console.log(romanToInt("I")); // 1
 console.log(romanToInt("IV")); // 4
