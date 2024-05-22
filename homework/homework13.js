@@ -15,6 +15,8 @@ const countVC = (str) => {
   return counts;
 };
 
+
+
 console.log(countVC("Hello")); // {vowels: 2, consonants: 3}
 console.log(countVC("Programming")); // {vowels: 3, consonants: 8}
 console.log(countVC("123AbC")); // {vowels: 1, consonants: 2}
