@@ -40,7 +40,7 @@ const countChars = (str) => {
 
   for (const char of str) {
     if(char === ' ') continue;
-    
+
     if(char >= 'a' && char <= 'z') {
       chars.letters++;
     }
@@ -101,10 +101,11 @@ const maxOccurrences = (str) => {
 
 console.log(maxOccurrences("Hello")); //​ "l"
 console.log(maxOccurrences("Occurrences")); // "c"
-console.log(maxOccurrences("  ab  ")); // "al"
+console.log(maxOccurrences("  ab  ")); // "a"
 console.log(maxOccurrences("12   3   21")); // "1"
 console.log(maxOccurrences("     ")); // ""
 console.log(maxOccurrences("")); // ""
+
 
 /* Task-4
 Write a function named starOut() which takes a string argument and returns 
@@ -131,6 +132,7 @@ console.log(starOut("abc")); // "abc"
 console.log(starOut("***")); // ""
 console.log(starOut("   ")); // "   "
 console.log(starOut("")); // ""
+
 
 /* Task-5
 Write a function named romanToInt() which takes a string roman numeral as its arguments 
