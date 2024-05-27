@@ -82,12 +82,14 @@ Write a function named capsOdds() which takes an array argument and returns
 the array with all the odd index elements capitalized (converted to uppercase).
 */
 
-const capsOdds = (arr) => {
-  for(let i = 0; i <= arr.length; i++) {
-    if(i % 2 !== 0) arr[i] = arr[i].toUpperCase();
-  }
-  return arr;
-}
+// const capsOdds = (arr) => {
+//   for(let i = 0; i <= arr.length; i++) {
+//     if(i % 2 !== 0) arr[i] = arr[i].toUpperCase();
+//   }
+//   return arr;
+// }
+
+const capsOdds = arr => arr.map((elem, index) => index % 2 !== 0 ? elem.toUpperCase() : elem)
 
 console.log(capsOdds(["Hello", "World"])); // ["Hello", "WORLD"]
 console.log(capsOdds(["Jan", "Feb", "Mar", "Apr"])); // ["Jan", "FEB", "Mar", "APR"]
