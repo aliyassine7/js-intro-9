@@ -358,5 +358,3 @@ console.log(arrFactorial([1, 2, 3, 4])); // [1, 2, 6, 24]
 console.log(arrFactorial([0, 5])); // [1, 120]
 console.log(arrFactorial([5, 0, 6])); // [120, 1, 720]
 console.log(arrFactorial([])); // []
-
-
